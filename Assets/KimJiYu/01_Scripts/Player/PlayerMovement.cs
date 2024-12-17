@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -46,9 +44,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (_moveDir.x < 0)
+        if (_rigid.velocity.x < 0)
             transform.localScale = new Vector3(-1,1,1);
-        else
+        else if (_rigid.velocity.x > 0)
             transform.localScale = Vector3.one;
     }
 
