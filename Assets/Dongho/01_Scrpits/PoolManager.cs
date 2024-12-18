@@ -89,7 +89,7 @@ public class PoolManager : MonoBehaviour
     // 오브젝트 생성한 후 풀로 들여보내는 함수
     private void AddObj(string path)
     {
-        var go = Instantiate(Resources.Load<GameObject>("PoolObjects/" + path));
+        var go = Instantiate(Resources.Load<GameObject>("PoolObjects/Monster/" + path));
         poolDictionary[path].Return(go);
     }
     private void AddObj(string path, int number)

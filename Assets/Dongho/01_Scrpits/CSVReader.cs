@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CSVReader : MonoBehaviour
 {
-    public CSVReader instance = null;
+    public static CSVReader instance = null;
 
     private void Awake()
     {
@@ -17,14 +17,14 @@ public class CSVReader : MonoBehaviour
     // key:value 형태로 저장
     // key(메뉴명)로 value를 뽑아오기 위해
     // 원하는 형태로 선언해도 무방
-    public Dictionary<string, Menu> dicMenu = new Dictionary<string, Menu>(); // 상품명 : menu(상품 이름, 가격, 정보)
+    public Dictionary<int, Menu> dicMenu = new Dictionary<int, Menu>(); 
 
     // 읽어 온 데이터를 담을 구조체
     // 저는 클래스로 생성했습니다! struct로 생성해도 동일해요.
     [System.Serializable]
     public class Menu
     {
-        public string waveCount;
+        public int waveCount;
         public string[] monsters;
         public string[] monsterNumber;
     }
@@ -82,7 +82,7 @@ public class CSVReader : MonoBehaviour
             // 메뉴를 리스트에 있던 데이터로 초기화
             // menu.name에 splitData[0]번째 있는 데이터를 담는다는 의미
             // 즉, menu 객체 name변수에는 splitData[0]에 담긴 "샌드위치"가 들어갑니다.
-            menu.waveCount = splitData[0];
+            menu.waveCount = int.Parse(splitData[0]);
 
             for (int i = 0; i < splitData.Length; i++)
             {
@@ -111,11 +111,8 @@ public class CSVReader : MonoBehaviour
             // menu 객체에 다 담았다면 dictionary에 key와 value값으로 저장
             // 이렇게 해두면 dicMenu.Add("샌드위치");로 menu.name, menu.price .. 접근 가능
             dicMenu.Add(menu.waveCount, menu);
-            //for(int i = 0; i < dicMenu.Count; i++)
-            //{
-            //    string name = dicMenu[menu.waveCount].monsters[i];
-            //    int num = int.Parse(dicMenu[menu.waveCount].monsterNumber[i]);
-            //}
         }
+        Menu menud = dicMenu[1];
+        Debug.Log(menud.monsters[0]);
     }
 }
