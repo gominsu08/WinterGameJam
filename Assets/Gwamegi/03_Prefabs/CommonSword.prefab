@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4162432513560757913}
   - component: {fileID: 5988782953193827115}
   - component: {fileID: 1486093719574565337}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CommonSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.010833979}
