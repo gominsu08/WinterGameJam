@@ -24,12 +24,8 @@ public class MonsterSpawnManager : MonoBehaviour
         _rushMobs = Resources.LoadAll<GameObject>("PoolObjects/Monster/Rush");
         _selfBombMobs = Resources.LoadAll<GameObject>("PoolObjects/Monster/SelfBomb");
     }
-    private void Update()
-    {
-        RandMonster();
-    }
 
-    private void RandMonster()
+    public void RandMonster()
     {
         monsterTypeRand = Random.Range(0, 1);
 
@@ -60,7 +56,7 @@ public class MonsterSpawnManager : MonoBehaviour
             position = Vector3.zero + Random.insideUnitSphere * _maxSpawnDistance;
         }
 
-        PoolManager.instance.PoolingObj("Monster/Common", num).Get((value) =>
+        PoolManager.instance.PoolingObj("Monster", num).Get((value) =>
         {
             value.transform.position = position;
         });

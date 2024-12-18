@@ -4,47 +4,73 @@ using UnityEngine;
 
 public abstract class Monster : MonoBehaviour
 {
-    private float _hp;
-    private float _dmg;
-    private float _speed;
+    protected Animator _animator;
+
+    private float hp;
+    private float dmg;
+    private float speed;
 
     protected float Hp {
         get
         {
-            return _hp;
+            return hp;
         }
         private set
         {
-            _hp = value;
+            hp = value;
         }
     }
     protected float Dmg
     {
         get
         {
-            return _dmg;
+            return dmg;
         }
         private set
         {
-            _dmg = value;
+            dmg = value;
         }
     }
     protected float Speed
     {
         get
         {
-            return _speed;
+            return speed;
         }
         private set
         {
-            _speed = value;
+            speed = value;
         }
     }
 
-    protected abstract void Attack();
-    protected abstract void Idle();
-    protected abstract void Move();
-    protected abstract void GetDamage();
+    protected virtual void Attack()
+    {
+        _animator.SetTrigger("Attack");
+        _animator.ResetTrigger("Move");
+        _animator.ResetTrigger("Idle");
+        _animator.ResetTrigger("Hit");
+    }
+    protected virtual void Idle()
+    {
+        _animator.SetTrigger("Idle");
+        _animator.ResetTrigger("Move");
+        _animator.ResetTrigger("Attack");
+        _animator.ResetTrigger("Hit");
+    }
+    protected virtual void Move()
+    {
+        _animator.SetTrigger("Move");
+        _animator.ResetTrigger("Idle");
+        _animator.ResetTrigger("Attack");
+        _animator.ResetTrigger("Hit");
+    }
+    protected virtual void GetDamage()
+    {
+        _animator.ResetTrigger("Attack");
+        _animator.ResetTrigger("Move");
+        _animator.SetTrigger("Hit");
+        _animator.ResetTrigger("Idle");
+    }
     protected abstract void Run();
     protected abstract void CheckTarget();
 
