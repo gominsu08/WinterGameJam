@@ -30,6 +30,8 @@ public class SwordDataSO : ScriptableObject
     /// 검의 사이즈
     /// </summary>
     public float size;
+
+
     /// <summary>
     /// 칼 이미지
     /// </summary>
