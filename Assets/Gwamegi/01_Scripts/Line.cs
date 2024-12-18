@@ -11,6 +11,17 @@ public class Line : MonoBehaviour
     private SpriteRenderer _renderer;
 
 
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+
     private void Awake()
     {
         _getWeapon = GameObject.Find("CheckWeapon").GetComponent<GetWeapon>();
