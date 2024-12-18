@@ -39,7 +39,7 @@ public class SwordDataSO : ScriptableObject
     /// <summary>
     /// 검의 사이즈
     /// </summary>
-    public float size;
+    public float minSize, maxSize;
     /// <summary>
     /// 검의 스폰 그룹
     /// </summary>
