@@ -43,36 +43,10 @@ public abstract class Monster : MonoBehaviour
         }
     }
 
-    protected virtual void Attack()
-    {
-        _animator.SetTrigger("Attack");
-        _animator.SetBool("Move", false);
-        _animator.ResetTrigger("Idle");
-        _animator.ResetTrigger("Hit");
-    }
-    protected virtual void Idle()
-    {
-        _animator.SetTrigger("Idle");
-        _animator.SetBool("Move", false);
-        _animator.ResetTrigger("Attack");
-        _animator.ResetTrigger("Hit");
-    }
-    protected virtual void Move()
-    {
-        _animator.SetBool("Move", true);
-        _animator.ResetTrigger("Idle");
-        _animator.ResetTrigger("Attack");
-        _animator.ResetTrigger("Hit");
-    }
-    public virtual void GetDamage(int damage)
-    {
-        _animator.SetTrigger("Hit");
-        _animator.ResetTrigger("Attack");
-        _animator.SetBool("Move", false);
-        _animator.ResetTrigger("Idle");
-
-        Hp -= damage;
-    }
+    protected abstract void Dead();
+    protected abstract void Idle();
+    protected abstract void Move();
+    public abstract void GetDamage(float damage);
     protected abstract void Run();
     protected abstract void CheckTarget();
 
