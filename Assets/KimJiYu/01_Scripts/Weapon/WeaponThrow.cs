@@ -6,10 +6,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class WeaponThrow : MonoBehaviour
+public class WeaponThrow : MonoSingleton<WeaponThrow>
 {
-    public static WeaponThrow Instance;
-
     public UnityEvent<int> OnThrowWeapon;
     public UnityEvent OnCharge;
 
@@ -33,11 +31,6 @@ public class WeaponThrow : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(Instance);
-
         _player = GetComponentInParent<Player>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
         _weaponInfoIcon = GameObject.Find("WeaponIcon").GetComponent<Image>();
@@ -72,6 +65,7 @@ public class WeaponThrow : MonoBehaviour
         else if (_chargeValue >= 2000)
         {
             _chargeValue += Time.deltaTime * 2000;
+            CameraShake.Instance.ShakeCamera();
         }
         transform.localRotation = Quaternion.Euler(0,0,_chargeValue);
         _player._moveSpeed = 5;
@@ -99,9 +93,17 @@ public class WeaponThrow : MonoBehaviour
     {
         _sprite.enabled = false;
         _weaponInfoIcon.enabled = false;
+        CameraShake.Instance.BigShake();
         _player._moveSpeed = 8;
         _chargeValue = 0;
         transform.localRotation = Quaternion.Euler(0, 0, _chargeValue);
         OnThrowWeapon?.Invoke(_currentWeaponId);
+        StartCoroutine(CameraStopShake());
+    }
+    
+    private IEnumerator CameraStopShake()
+    {
+        yield return new WaitForSeconds(0.2f);
+        CameraShake.Instance.StopShake();
     }
 }
