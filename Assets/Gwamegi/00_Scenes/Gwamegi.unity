@@ -131,6 +131,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 343075459}
+  - component: {fileID: 343075460}
+  - component: {fileID: 343075461}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -154,6 +156,35 @@ Transform:
   - {fileID: 1878941685}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+--- !u!114 &343075460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343075458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f956e2ea54dfd484fb3b2f333b92ddd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SwordDataSO: {fileID: 11400000, guid: 3947adbaa8a3bfd47a23e7258b20c3b6, type: 2}
+  m_ObstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 98304
+--- !u!114 &343075461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343075458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d773dc54703fea346b5a879feed40947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _swordDataSO: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

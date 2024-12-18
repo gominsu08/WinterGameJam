@@ -4,10 +4,16 @@ using UnityEngine;
 
 public abstract class Sword : MonoBehaviour
 {
-    [SerializeField] protected SwordDataSO m_SwordDataSO;
-    [SerializeField] protected LayerMask m_ObstacleLayerMask;
+    protected SwordDataSO m_SwordDataSO;  
+    protected LayerMask m_LayerMask;
     protected Vector2 m_Position;
     
+    public virtual void Init(SwordDataSO swordDataSO, LayerMask obstacleLayerMask)
+    {
+        m_SwordDataSO = swordDataSO;
+        m_LayerMask = obstacleLayerMask;
+    }
+
 
     public abstract void ThrowSword(Vector2 targetPos);
 
@@ -15,7 +21,7 @@ public abstract class Sword : MonoBehaviour
     {
         Vector2 dir = targetPos - (Vector2)transform.position;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, m_SwordDataSO.intersection, m_ObstacleLayerMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, m_SwordDataSO.intersection, m_LayerMask);
 
         if (hit)
             m_Position = hit.transform.position;
