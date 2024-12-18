@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [field: SerializeField] public InputReader inputReader { get; private set; }
 
-    [SerializeField] private float _moveSpeed;
+    public float _moveSpeed;
 
     private Rigidbody2D _rigid;
     private Animator _anim;
@@ -38,8 +38,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        CheckAnim();
-        _rigid.velocity = _moveDir.normalized * _moveSpeed;
+        if (!WeaponThrow.Instance.isPickUp)
+        {
+            CheckAnim();
+            _rigid.velocity = _moveDir.normalized * _moveSpeed;
+        }
+        else
+        {
+            _rigid.velocity = Vector2.zero;
+        }
     }
 
     private void Flip()
