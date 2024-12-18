@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [field: SerializeField] public InputReader inputReader { get; private set; }
 
-    [SerializeField] private float _moveSpeed;
+    public float _moveSpeed;
 
     private Rigidbody2D _rigid;
     private Animator _anim;
@@ -42,6 +42,10 @@ public class PlayerMovement : MonoBehaviour
         {
             CheckAnim();
             _rigid.velocity = _moveDir.normalized * _moveSpeed;
+        }
+        else
+        {
+            _rigid.velocity = Vector2.zero;
         }
     }
 
