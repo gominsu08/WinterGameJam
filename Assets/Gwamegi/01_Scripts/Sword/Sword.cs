@@ -7,11 +7,13 @@ public abstract class Sword : MonoBehaviour
     protected SwordDataSO m_SwordDataSO;  
     protected LayerMask m_LayerMask;
     protected Vector2 m_Position;
+    protected Rigidbody2D m_RbCompo;
     
     public virtual void Init(SwordDataSO swordDataSO, LayerMask obstacleLayerMask)
     {
         m_SwordDataSO = swordDataSO;
         m_LayerMask = obstacleLayerMask;
+        m_RbCompo = GetComponent<Rigidbody2D>();
     }
 
 

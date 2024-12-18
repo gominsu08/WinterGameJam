@@ -5,12 +5,32 @@ using UnityEngine;
 public class CommonSword : Sword
 {
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ThrowSword(new Vector2(6,3));
+        }
+    }
 
     public override void ThrowSword(Vector2 location)
     {
         DistanceCalculation(location);
 
+        Vector2 direction = (location - (Vector2)transform.position);
+        float desiredAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(desiredAngle - 90, Vector3.forward);
 
+        m_RbCompo.velocity = direction.normalized * m_SwordDataSO.speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<TestEnemy>(out TestEnemy testEnemy))
+        {
+            testEnemy.Health--;
+            m_RbCompo.velocity = Vector2.zero;
+        }
     }
 
 
