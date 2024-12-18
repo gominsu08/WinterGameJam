@@ -72,11 +72,11 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enenmy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            if(collision.gameObject.TryGetComponent(out Monster monster))
+            if (collision.gameObject.TryGetComponent(out CommonMob monster))
             {
-                
+                //_health.GetHit((int)monster.Dmg);
             }
         }
     }
