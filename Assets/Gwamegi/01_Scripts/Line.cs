@@ -18,6 +18,7 @@ public class Line : MonoBehaviour
 
     public void Show()
     {
+        transform.position = new Vector3(playerTrm.position.x, playerTrm.position.y - 0.3f, 0);
         gameObject.SetActive(true);
     }
 
@@ -33,15 +34,16 @@ public class Line : MonoBehaviour
         
     }
 
+
     private void Update()
     {
-        transform.position = new Vector3(playerTrm.position.x, playerTrm.position.y - 0.3f,0);
+        transform.position = new Vector3(playerTrm.position.x, playerTrm.position.y - 0.3f, 0);
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float distance = (mousePos - (Vector2)transform.position).magnitude;
         Vector3 direction = mousePos - (Vector2)transform.position;
 
-        LineYScail(distance, direction, _getWeapon._swordDataSO.penetrationCount > distance);
+        LineYScail(distance, direction, _getWeapon._swordDataSO.intersection > distance);
 
     }
 
