@@ -74,9 +74,9 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enenmy"))
         {
-            if(collision.gameObject.TryGetComponent(out Monster monster))
+            if(collision.gameObject.TryGetComponent(out CommonMob monster))
             {
-                
+                //_health.GetHit((int)monster.Dmg);
             }
         }
     }
