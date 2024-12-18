@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInput",
+    "name": "KeyAction",
     "maps": [
         {
             "name": "PlayerInput",
