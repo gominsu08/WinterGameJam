@@ -23,13 +23,15 @@ public class SwordDataSO : ScriptableObject
     /// </summary>
     public float intersection;
     /// <summary>
-    /// 관통 마리수
-    /// </summary>
-    public int penetrationCount;
-    /// <summary>
     /// 줍기 딜레이 시간
     /// </summary>
     public float pickUpDelayTime;
+    /// <summary>
+    /// 검의 사이즈
+    /// </summary>
+    public float size;
+
+
     /// <summary>
     /// 칼 이미지
     /// </summary>
