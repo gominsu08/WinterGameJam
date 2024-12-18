@@ -390,14 +390,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5988782953193827115, guid: 2fbf1e65c1f8c094cabebbb8ca3a6b3e, type: 3}
-      propertyPath: m_Size.y
-      value: 1.4419231
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988782953193827115, guid: 2fbf1e65c1f8c094cabebbb8ca3a6b3e, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.08228731
-      objectReference: {fileID: 0}
     - target: {fileID: 8817923300853167359, guid: 2fbf1e65c1f8c094cabebbb8ca3a6b3e, type: 3}
       propertyPath: m_Name
       value: CommonSword
@@ -1101,8 +1093,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1524654843
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: -397584885, guid: d4a326c1f0f21904c9b25cceeac5d920, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1547,10 +1539,6 @@ PrefabInstance:
       propertyPath: OnThrowSwordEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1177349085}
-    - target: {fileID: 3682664056316955951, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1650864785, guid: a07e17a44303c1f42a60ab7f0b097fe2, type: 3}
     - target: {fileID: 5202100483779198816, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.42521185
@@ -1595,61 +1583,12 @@ PrefabInstance:
       propertyPath: OnCharge.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1177349085}
-    - target: {fileID: 6496688051578385057, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: swordId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6496688051578385057, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: OnPickUpSword.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6496688051578385057, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: OnPickUpSword.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6496688051578385057, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: OnPickUpSword.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1177349085}
-    - target: {fileID: 6496688051578385057, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: OnPickUpSword.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6496688051578385057, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: OnPickUpSword.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Show
-      objectReference: {fileID: 0}
-    - target: {fileID: 6496688051578385057, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: OnPickUpSword.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Line, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6496688051578385057, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: OnPickUpSword.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8948169578412858792, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
       propertyPath: m_Name
       value: TestPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 8971790548091298032, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.86733127
-      objectReference: {fileID: 0}
-    - target: {fileID: 8971790548091298032, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8971790548091298032, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.4977314
-      objectReference: {fileID: 0}
-    - target: {fileID: 8971790548091298032, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -300.3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 9086840895209008968, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
