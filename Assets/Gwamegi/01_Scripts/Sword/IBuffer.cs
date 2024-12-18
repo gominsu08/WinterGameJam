@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IBuffer
 {
-    
+    public void Buffer();
 }

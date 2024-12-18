@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDebuffer
 {
-    
+    public void Debuffer();
 }
