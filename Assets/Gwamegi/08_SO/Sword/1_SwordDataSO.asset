@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 1_SwordDataSO
   m_EditorClassIdentifier: 
   swordNumber: 1
-  damage: 5
-  speed: 25
-  intersection: 1
-  penetrationCount: 10
+  damage: 15
+  speed: 12
+  intersection: 7
   pickUpDelayTime: 0.1
+  minSize: 1
+  maxSize: 1
+  swordGroupEnum: 4
   swordSprite: {fileID: 21300000, guid: 4cc208b9d78d21d44ab1ea43970de5ea, type: 3}

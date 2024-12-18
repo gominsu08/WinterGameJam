@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordNumber: 19
   damage: 35
-  speed: 3
+  speed: 12
   intersection: 4
   pickUpDelayTime: 0.5
   minSize: 0.5
