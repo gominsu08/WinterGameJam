@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sea
+    uniqueID: 3566592269
+    locked: 0
+  - name: Background
+    uniqueID: 1448606077
+    locked: 0
+  - name: Frontgrund
+    uniqueID: 3801716787
+    locked: 0
+  - name: 'Nature '
+    uniqueID: 2485311381
+    locked: 0
+  - name: Monster
+    uniqueID: 1566979715
+    locked: 0
