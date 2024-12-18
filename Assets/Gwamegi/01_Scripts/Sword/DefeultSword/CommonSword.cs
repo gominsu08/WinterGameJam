@@ -15,7 +15,7 @@ public class CommonSword : Sword
 
         Debug.Log(transform.position);
 
-        if ((m_Position.x + 0.5f > transform.position.x || m_Position.x - 0.5f < transform.position.x ) && (m_Position.y + 0.5f > transform.position.y || m_Position.y - 0.5f < transform.position.y))
+        if ((m_Position.x + 0.5f > transform.position.x && m_Position.x - 0.5f < transform.position.x ) && (m_Position.y + 0.5f > transform.position.y && m_Position.y - 0.5f < transform.position.y))
         {
             m_RbCompo.velocity = Vector2.zero;
         }
