@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [field: SerializeField] public InputReader InputCompo { get; private set; }
+    [field: SerializeField] public InputReader inputReader { get; private set; }
 
     [SerializeField] private float _moveSpeed;
 
@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        InputCompo.OnMove += GetMoveValue;
+        inputReader.OnMove += GetMoveValue;
 
         _rigid = GetComponent<Rigidbody2D>();
         _anim = GetComponentInChildren<Animator>();
@@ -60,6 +60,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDisable()
     {
-        InputCompo.OnMove -= GetMoveValue;
+        inputReader.OnMove -= GetMoveValue;
     }
 }

@@ -10,6 +10,7 @@ public class InputReader : ScriptableObject, IPlayerInputActions
 {
     public event Action<Vector2> OnMove;
     public event Action OnAttackEvent;
+    public event Action OnEndAttackEvent;
 
     private KeyAction _playerInput;
 
@@ -33,8 +34,10 @@ public class InputReader : ScriptableObject, IPlayerInputActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.performed)
-            OnAttackEvent?.Invoke();
+        OnAttackEvent?.Invoke();
+        if (context.canceled)
+            OnEndAttackEvent?.Invoke();
+
     }
 
     private void OnDisable()
