@@ -445,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d1a6c3c905ac54ea49bb74901220f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _swordDataSO: {fileID: 0}
   swordId: 0
   weaponIcon: {fileID: 0}
 --- !u!1 &878070942
@@ -564,9 +565,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa20a2dc1ded713439275ed4d08ded60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnThrowWeapon:
+    m_PersistentCalls:
+      m_Calls: []
   _sprite: {fileID: 0}
   _currentWeaponId: 0
   isOwnWeapon: 0
+  isPickUp: 0
+  isCharging: 0
 --- !u!1 &1265201617
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +745,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0030808449, y: -0.20641464}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -750,7 +756,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7720196, y: 1.1417176}
   m_EdgeRadius: 0
 --- !u!50 &1295087253
 Rigidbody2D:
