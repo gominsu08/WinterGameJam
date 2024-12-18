@@ -17,5 +17,5 @@ MonoBehaviour:
   speed: 25
   intersection: 1
   penetrationCount: 4
-  pickUpDelayTime: 5
+  pickUpDelayTime: 0.1
   swordSprite: {fileID: 21300000, guid: 4cc208b9d78d21d44ab1ea43970de5ea, type: 3}

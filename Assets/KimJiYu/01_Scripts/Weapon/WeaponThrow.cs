@@ -2,18 +2,20 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WeaponThrow : MonoBehaviour
 {
     public static WeaponThrow Instance;
 
-    public event Action<int> OnThrowWeapon;
+    public UnityEvent<int> OnThrowWeapon;
 
     public SpriteRenderer _sprite;
     private GetWeapon _currentWeaponData;
 
     public int _currentWeaponId;
     public bool isOwnWeapon = false;
+    public bool isPickUp = false;
     private float _chargeValue = 0;
 
     private bool _minThrow = false;
@@ -38,7 +40,6 @@ public class WeaponThrow : MonoBehaviour
 
     private void Update()
     {
-        OnThrowWeapon += Test;
         _currentWeaponId = _currentWeaponData.swordId;
 
         if (Input.GetMouseButton(0) && !isOwnWeapon)
