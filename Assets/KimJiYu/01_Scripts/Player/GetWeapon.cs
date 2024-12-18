@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class GetWeapon : MonoBehaviour
 {
     public UnityEvent OnPickUpSword;
 
     private SwordDataContains _swordData;
+    private Image _weaponInfoIcon;
+    private GameObject _destroySword;
 
     public SwordDataSO _swordDataSO;
     private bool _canPickUp;
@@ -15,13 +18,18 @@ public class GetWeapon : MonoBehaviour
     public int swordId;
     public Sprite weaponIcon;
 
+    private void Awake()
+    {
+        _weaponInfoIcon = GameObject.Find("WeaponIcon").GetComponent<Image>();
+    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent(out SwordDataContains swordData))
         {
-            _swordData = swordData;
             _canPickUp = true;
+            _swordData = swordData;
+            _destroySword = collision.gameObject;
         }
     }
 
@@ -39,9 +47,12 @@ public class GetWeapon : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && WeaponThrow.Instance.isOwnWeapon)
             {
+                _weaponInfoIcon.enabled = false;
+                _weaponInfoIcon.sprite = _swordData.GetSwordSprite();
                 WeaponThrow.Instance.isPickUp = true;
                 OnPickUpSword?.Invoke();
                 StartCoroutine(OwnCoolTime());
+                Destroy(_destroySword);
             }
         }
     }
