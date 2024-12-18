@@ -42,6 +42,11 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
         
     }
 
+    public void test()
+    {
+        Debug.Log("dd");
+    }
+
     private void Update()
     {
         _currentWeaponId = _currentWeaponData.swordId;
