@@ -9,11 +9,11 @@ AnimatorOverrideController:
   m_Name: Knight_D
   m_Controller: {fileID: 9100000, guid: 9f94d67adf884024e83027603069a28e, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: d010573016c9f8348bb2df8a565a4c13, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: ceaa43e3d33fcfc4fae5efd4fb2eaaf1, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 8b17e6c90ae3c654dae03ef48115e642, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 872b7fcf3c17cd440b1c2f173b15dee4, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: cfd12453e8f296c44a5afec4d255275a, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: d7d985365cde84f4985ff62f4cdb94f4, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 23c0e7278b9adfe4da3f280d2be5f342, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: d9e01ea97dc6019479511feead9fd4c9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9c9232eb14c1cfb42bd641aaff933454, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ceaa43e3d33fcfc4fae5efd4fb2eaaf1, type: 2}

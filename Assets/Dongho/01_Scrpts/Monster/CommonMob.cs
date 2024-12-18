@@ -27,6 +27,10 @@ public class CommonMob : Monster
     private void Update()
     {
         CheckTarget();
+        if (_animator.GetBool("Move"))
+        {
+            _rigid.velocity = Vector3.MoveTowards(transform.position, _targetObject.transform.position, Speed * Time.deltaTime);
+        }
     }
 
     protected override void CheckTarget()
@@ -53,17 +57,19 @@ public class CommonMob : Monster
     protected override void Move()
     {
         base.Move();
-        _rigid.velocity = Vector3.MoveTowards(transform.position, _targetObject.transform.position, Speed * Time.deltaTime);
         CheckTarget();
     }
     protected override void Attack()
     {
         base.Attack();
+
+        // ¶§¸®±â
+
         CheckTarget();
     }
-    protected override void GetDamage()
+    public override void GetDamage(int damage)
     {
-        base.GetDamage();
+        base.GetDamage(damage);
         CheckTarget();
     }
     protected override void Run()
