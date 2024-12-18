@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47182be8a25ec5d4a993549c486e4fec, type: 3}
+  m_Name: 11_StrongSword
+  m_EditorClassIdentifier: 
+  swordNumber: 11
+  damage: 100
+  speed: 5
+  intersection: 10
+  pickUpDelayTime: 1.2
+  minSize: 3
+  maxSize: 15
+  swordGroupEnum: 0
+  swordSprite: {fileID: 1649729093, guid: d1a9343c220339d41bec0fce2e959024, type: 3}
