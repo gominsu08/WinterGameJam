@@ -11,11 +11,13 @@ public class WeaponThrow : MonoBehaviour
     public UnityEvent<int> OnThrowWeapon;
 
     public SpriteRenderer _sprite;
+    private PlayerMovement _player;
     private GetWeapon _currentWeaponData;
 
     public int _currentWeaponId;
     public bool isOwnWeapon = false;
     public bool isPickUp = false;
+    public bool isCharging = false;
     private float _chargeValue = 0;
 
     private bool _minThrow = false;
@@ -30,6 +32,7 @@ public class WeaponThrow : MonoBehaviour
         else
             Destroy(Instance);
 
+        _player = GetComponentInParent<PlayerMovement>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
         _currentWeaponData = GameObject.Find("CheckWeapon").GetComponent<GetWeapon>();
     }
@@ -48,11 +51,6 @@ public class WeaponThrow : MonoBehaviour
             ThrowWeapon();
     }
 
-    private void Test(int value)
-    {
-        Debug.Log("sex");
-    }
-
     private void ChargeWeapon()
     {
         Debug.Log("Â÷Â¡");
@@ -63,17 +61,18 @@ public class WeaponThrow : MonoBehaviour
         else if(_chargeValue >= 2000)
             _chargeValue += Time.deltaTime * 2000;
         transform.localRotation = Quaternion.Euler(0,0,_chargeValue);
+        _player._moveSpeed = 5;
     }
 
     private void ThrowWeapon()
     {
         Debug.Log("´øÁü");
-
         if (_chargeValue < 300)
         {
+            _player._moveSpeed = 5;
             isOwnWeapon = true;
             _sequence = DOTween.Sequence();
-            _sequence.Append(transform.DOLocalRotate(new Vector3(0, 0, 360f), 0.3f, RotateMode.FastBeyond360));
+            _sequence.Append(transform.DOLocalRotate(new Vector3(0, 0, 640f), 0.6f, RotateMode.FastBeyond360));
             _sequence.OnComplete(() => DisableThrow());
 
         }
@@ -86,6 +85,7 @@ public class WeaponThrow : MonoBehaviour
     private void DisableThrow()
     {
         _sprite.enabled = false;
+        _player._moveSpeed = 8;
         _chargeValue = 0;
         transform.localRotation = Quaternion.Euler(0, 0, _chargeValue);
         OnThrowWeapon?.Invoke(_currentWeaponId);

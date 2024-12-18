@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GetWeapon : MonoBehaviour
 {
+    public UnityEvent OnPickUpSword;
+
     private SwordDataContains _swordData;
 
     public SwordDataSO _swordDataSO;
@@ -36,6 +39,8 @@ public class GetWeapon : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && WeaponThrow.Instance.isOwnWeapon)
             {
+                WeaponThrow.Instance.isPickUp = true;
+                OnPickUpSword?.Invoke();
                 StartCoroutine(OwnCoolTime());
             }
         }
@@ -52,6 +57,7 @@ public class GetWeapon : MonoBehaviour
             WeaponThrow.Instance._sprite.enabled = true;
             swordId = _swordData.GetSwordId();
             WeaponThrow.Instance.isOwnWeapon = false;
+            WeaponThrow.Instance.isPickUp = false;
         }
     }
 }
