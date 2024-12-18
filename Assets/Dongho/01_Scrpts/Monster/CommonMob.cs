@@ -13,7 +13,6 @@ public class CommonMob : Monster
     [SerializeField] private float _attackTargetDistance; // 플레이어를 공격하는 거리
     [SerializeField] private LayerMask _targetLayer;
 
-    private Animator _animator;
     private Transform _targetObject;
     private Rigidbody2D _rigid;
 
@@ -48,32 +47,24 @@ public class CommonMob : Monster
 
     protected override void Idle()
     {
-        _animator.SetTrigger("Idle");
-        _animator.ResetTrigger("Move");
-        _animator.ResetTrigger("Attack");
-
+        base.Idle();
         CheckTarget();
     }
     protected override void Move()
     {
-        _animator.SetTrigger("Move");
-        _animator.ResetTrigger("Idle");
-        _animator.ResetTrigger("Attack");
-        
+        base.Move();
         _rigid.velocity = Vector3.MoveTowards(transform.position, _targetObject.transform.position, Speed * Time.deltaTime);
-
         CheckTarget();
     }
     protected override void Attack()
     {
-        _animator.SetTrigger("Attack");
-        _animator.ResetTrigger("Move");
-        _animator.ResetTrigger("Idle");
-
+        base.Attack();
         CheckTarget();
     }
     protected override void GetDamage()
     {
+        base.GetDamage();
+        CheckTarget();
     }
     protected override void Run()
     {
