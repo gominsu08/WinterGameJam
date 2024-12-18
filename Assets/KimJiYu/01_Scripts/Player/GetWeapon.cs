@@ -45,8 +45,8 @@ public class GetWeapon : MonoBehaviour
     {
         if (_swordData != null)
         {
-            yield return new WaitForSeconds(1);
             _swordDataSO = _swordData.GetSwordDataSO();
+            yield return new WaitForSeconds(_swordDataSO.pickUpDelayTime);
             weaponIcon = _swordData.GetSwordSprite();
             WeaponThrow.Instance._sprite.sprite = weaponIcon;
             WeaponThrow.Instance._sprite.enabled = true;
