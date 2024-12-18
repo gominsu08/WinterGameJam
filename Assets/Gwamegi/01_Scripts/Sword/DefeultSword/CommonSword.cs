@@ -13,8 +13,6 @@ public class CommonSword : Sword
             ThrowSword(new Vector2(6,3));
         }
 
-        Debug.Log(transform.position);
-
         if ((m_Position.x + 0.5f > transform.position.x && m_Position.x - 0.5f < transform.position.x ) && (m_Position.y + 0.5f > transform.position.y && m_Position.y - 0.5f < transform.position.y))
         {
             m_RbCompo.velocity = Vector2.zero;
