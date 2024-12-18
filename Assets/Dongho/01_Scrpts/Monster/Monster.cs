@@ -20,7 +20,7 @@ public abstract class Monster : MonoBehaviour
             hp = value;
         }
     }
-    protected float Dmg
+    public float Dmg
     {
         get
         {
@@ -43,34 +43,10 @@ public abstract class Monster : MonoBehaviour
         }
     }
 
-    protected virtual void Attack()
-    {
-        _animator.SetTrigger("Attack");
-        _animator.ResetTrigger("Move");
-        _animator.ResetTrigger("Idle");
-        _animator.ResetTrigger("Hit");
-    }
-    protected virtual void Idle()
-    {
-        _animator.SetTrigger("Idle");
-        _animator.ResetTrigger("Move");
-        _animator.ResetTrigger("Attack");
-        _animator.ResetTrigger("Hit");
-    }
-    protected virtual void Move()
-    {
-        _animator.SetTrigger("Move");
-        _animator.ResetTrigger("Idle");
-        _animator.ResetTrigger("Attack");
-        _animator.ResetTrigger("Hit");
-    }
-    protected virtual void GetDamage()
-    {
-        _animator.ResetTrigger("Attack");
-        _animator.ResetTrigger("Move");
-        _animator.SetTrigger("Hit");
-        _animator.ResetTrigger("Idle");
-    }
+    protected abstract void Dead();
+    protected abstract void Idle();
+    protected abstract void Move();
+    public abstract void GetDamage(float damage);
     protected abstract void Run();
     protected abstract void CheckTarget();
 
