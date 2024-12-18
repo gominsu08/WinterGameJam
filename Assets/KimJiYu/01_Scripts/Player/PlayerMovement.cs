@@ -38,8 +38,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        CheckAnim();
-        _rigid.velocity = _moveDir.normalized * _moveSpeed;
+        if (!WeaponThrow.Instance.isPickUp)
+        {
+            CheckAnim();
+            _rigid.velocity = _moveDir.normalized * _moveSpeed;
+        }
     }
 
     private void Flip()
