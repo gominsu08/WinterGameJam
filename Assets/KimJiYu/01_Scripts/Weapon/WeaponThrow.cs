@@ -9,6 +9,7 @@ public class WeaponThrow : MonoBehaviour
     public static WeaponThrow Instance;
 
     public UnityEvent<int> OnThrowWeapon;
+    public UnityEvent OnCharge;
 
     public SpriteRenderer _sprite;
     private PlayerMovement _player;
@@ -46,8 +47,11 @@ public class WeaponThrow : MonoBehaviour
         _currentWeaponId = _currentWeaponData.swordId;
 
         if (Input.GetMouseButton(0) && !isOwnWeapon)
+        {
+            OnCharge?.Invoke();
             ChargeWeapon();
-        else if(Input.GetMouseButtonUp(0) && !_minThrow && !isOwnWeapon)
+        }
+        else if (Input.GetMouseButtonUp(0) && !_minThrow && !isOwnWeapon)
             ThrowWeapon();
     }
 
