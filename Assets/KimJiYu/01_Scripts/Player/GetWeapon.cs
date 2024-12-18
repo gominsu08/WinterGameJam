@@ -10,6 +10,7 @@ public class GetWeapon : MonoBehaviour
 
     private SwordDataContains _swordData;
     private Image _weaponInfoIcon;
+    private GameObject _destroySword;
 
     public SwordDataSO _swordDataSO;
     private bool _canPickUp;
@@ -28,6 +29,7 @@ public class GetWeapon : MonoBehaviour
         {
             _canPickUp = true;
             _swordData = swordData;
+            _destroySword = collision.gameObject;
         }
     }
 
@@ -50,6 +52,7 @@ public class GetWeapon : MonoBehaviour
                 WeaponThrow.Instance.isPickUp = true;
                 OnPickUpSword?.Invoke();
                 StartCoroutine(OwnCoolTime());
+                Destroy(_destroySword);
             }
         }
     }
