@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6f7ae4db977514f82a1e3fd4802aa7, type: 3}
   m_Name: SwordObjectListSO
   m_EditorClassIdentifier: 
-  swords: []
+  swords:
+  - {fileID: 8619055979241575039, guid: 2fbf1e65c1f8c094cabebbb8ca3a6b3e, type: 3}
