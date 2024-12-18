@@ -47,7 +47,7 @@ public class GetWeapon : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && WeaponThrow.Instance.isOwnWeapon)
             {
-                _weaponInfoIcon.enabled = false;
+                _weaponInfoIcon.enabled = true;
                 _weaponInfoIcon.sprite = _swordData.GetSwordSprite();
                 WeaponThrow.Instance.isPickUp = true;
                 OnPickUpSword?.Invoke();
