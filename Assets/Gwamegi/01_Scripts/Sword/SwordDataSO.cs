@@ -2,6 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SwordGroupEnum
+{
+    S,
+    A,
+    B,
+    C,
+    D
+}
+
+
 [CreateAssetMenu( menuName = "SO/Sword/SwordDataSO")]
 public class SwordDataSO : ScriptableObject
 {
@@ -30,7 +40,10 @@ public class SwordDataSO : ScriptableObject
     /// 검의 사이즈
     /// </summary>
     public float size;
-
+    /// <summary>
+    /// 검의 스폰 그룹
+    /// </summary>
+    public SwordGroupEnum swordGroupEnum;
 
     /// <summary>
     /// 칼 이미지
