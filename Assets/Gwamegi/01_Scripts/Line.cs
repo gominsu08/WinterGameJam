@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Line : MonoBehaviour
 {
-
+    [SerializeField] private Transform playerTrm;
     [SerializeField] private GameObject _line;
     [SerializeField] private Transform _positionObject;
     private GetWeapon _getWeapon;
@@ -35,6 +35,8 @@ public class Line : MonoBehaviour
 
     private void Update()
     {
+        transform.position = new Vector3(playerTrm.position.x, playerTrm.position.y - 0.3f,0);
+
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float distance = (mousePos - (Vector2)transform.position).magnitude;
         Vector3 direction = mousePos - (Vector2)transform.position;
