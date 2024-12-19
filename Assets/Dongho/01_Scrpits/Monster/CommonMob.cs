@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Mob : MonoBehaviour
+public class CommonMob : MonoBehaviour
 {
     public float _dmg;
 
@@ -31,7 +31,7 @@ public class Mob : MonoBehaviour
     private void Start()
     {
         _sprite = _spriteRenderer.sprite;
-        StartCoroutine(CheckTargetPosition(3f));
+        StartCoroutine(CheckTargetPosition(2f)); 
     }
 
     private void Update()
