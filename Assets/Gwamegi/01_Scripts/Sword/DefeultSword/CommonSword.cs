@@ -20,9 +20,9 @@ public class CommonSword : Sword
     {
         if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
-            testEnemy.GetDamage(damage);
             m_RbCompo.velocity = Vector2.zero;
             OnAttackEvent?.Invoke();
+            testEnemy.GetDamage(damage);
 
             isCanHit = false;
         }

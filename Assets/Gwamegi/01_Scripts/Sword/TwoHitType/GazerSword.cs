@@ -19,9 +19,9 @@ public class GazerSword : Sword
 
             Laser item = Instantiate(_laser, transform.position, Quaternion.identity);
             item.LayerShot();
-            testEnemy.GetDamage(damage);
             OnAttackEvent?.Invoke();
             m_RbCompo.velocity = Vector2.zero;
+            testEnemy.GetDamage(damage);
             StartCoroutine(DestroedObject());
 
             isCanHit = false;

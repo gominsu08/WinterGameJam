@@ -18,10 +18,10 @@ public class GalacticSword : Sword
             
             BlackHole item = Instantiate(_blackHole, transform.position, Quaternion.identity);
             item.Boom();
-            testEnemy.GetDamage(damage);
             OnAttackEvent?.Invoke();
 
             m_RbCompo.velocity = Vector2.zero;
+            testEnemy.GetDamage(damage);
             StartCoroutine(DestroedObject());
 
             isCanHit = false;
