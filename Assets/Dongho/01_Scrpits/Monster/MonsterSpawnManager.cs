@@ -5,60 +5,39 @@ using UnityEngine;
 public class MonsterSpawnManager : MonoBehaviour
 {
     [SerializeField] private float _monsterSpawnTime = 5f;
-    [SerializeField] private float _maxSpawnDistance = 5f;
-    [SerializeField] private float _minSpawnDistance = 3f;
+    [SerializeField] private float _maxSpawnDistance = 30f;
+    [SerializeField] private float _minSpawnDistance = 10f;
 
-    private GameObject[] _commonMobs;
-    private GameObject[] _rushMobs;
-    private GameObject[] _selfBombMobs;
-    private Camera _camera;
-    private Vector3 _minSpawnPoint;
-    private Vector3 _maxSpawnPoint;
-    private int monsterTypeRand;
-    private int monsterRand;
+    private int _waveCount = 1;
 
-    private void Awake()
+    private void Start()
     {
-        _camera = Camera.main;
-        _commonMobs = Resources.LoadAll<GameObject>("PoolObjects/Monster/Common");
-        _rushMobs = Resources.LoadAll<GameObject>("PoolObjects/Monster/Rush");
-        _selfBombMobs = Resources.LoadAll<GameObject>("PoolObjects/Monster/SelfBomb");
+        StartCoroutine(das());
     }
-
-    public void RandMonster()
+    private IEnumerator das()
     {
-        monsterTypeRand = Random.Range(0, 1);
-
-        switch (monsterTypeRand)
-        {
-            case 0:
-                monsterRand = Random.Range(0, _commonMobs.Length);
-                SpawnMonster(monsterRand);
-                break;
-            case 1:
-                monsterRand = Random.Range(0, _rushMobs.Length);
-                SpawnMonster(monsterRand);
-                break;
-            case 2:
-                monsterRand = Random.Range(0, _selfBombMobs.Length);
-                SpawnMonster(monsterRand);
-                break;
-            default:
-                break;
-        }
+        yield return new WaitForSeconds(0.5f);
+        SpawnMonster();
     }
-    private void SpawnMonster(int num)
+    public void SpawnMonster()
     {
-        Vector2 position = Vector2.zero + Random.insideUnitCircle * _maxSpawnDistance;
-
-        while (Vector3.Distance(position, Vector3.zero) <= _minSpawnDistance)
+        for (int j = 0; j < CSVReader.instance.dicMenu[_waveCount].monsters.Length; j++)
         {
-            position = Vector3.zero + Random.insideUnitSphere * _maxSpawnDistance;
+            for(int i = 0; i < int.Parse(CSVReader.instance.dicMenu[_waveCount].monsterNumber[j]); i++)
+            {
+                Vector2 position = Vector2.zero + Random.insideUnitCircle * _maxSpawnDistance;
+
+                while (Vector3.Distance(position, Vector3.zero) <= _minSpawnDistance)
+                {
+                    position = Vector3.zero + Random.insideUnitSphere * _maxSpawnDistance;
+                }
+
+                PoolManager.instance.PoolingObj(CSVReader.instance.dicMenu[_waveCount].monsters[j]).Get((value) =>
+                {
+                    value.transform.position = position;
+                });
+            }
         }
-
-        PoolManager.instance.PoolingObj("Monster", num).Get((value) =>
-        {
-            value.transform.position = position;
-        });
+        
     }
 }
