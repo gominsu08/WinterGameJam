@@ -42,7 +42,7 @@ public class CommonMob : MonoBehaviour
     {
         SwordInit();
         StartCoroutine(CheckTargetPosition(UnityEngine.Random.Range(0.5f, 3f)));
-        GetComponent<BoxCollider2D>().enabled = true;
+        GetComponent<CapsuleCollider2D>().enabled = true;
         if (_speed == 0)
             _speed = speed;
         else
@@ -100,7 +100,7 @@ public class CommonMob : MonoBehaviour
         _animator.Play("Dead");
 
         _speed = 0;
-        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
 
         StartCoroutine(AfterDeadCoroutine(UnityEngine.Random.Range(0.5f, 1.5f)));
         TopUI.instance.PlusCoin(_coin);
