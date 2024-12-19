@@ -16,10 +16,10 @@ public class ThunderboltSword : Sword
         if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
             //적한테 데미지 들어가는 부분 제대로 만들어야함
-            testEnemy.GetDamage(damage);
             Instantiate(projectile,transform.position,transform.rotation);
             m_RbCompo.velocity = Vector2.zero;
             OnAttackEvent?.Invoke();
+            testEnemy.GetDamage(damage);
             StartCoroutine(DestroedObject());
             isCanHit = false;
         }

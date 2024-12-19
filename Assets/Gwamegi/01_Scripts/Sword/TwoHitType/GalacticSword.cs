@@ -15,11 +15,11 @@ public class GalacticSword : Sword
     {
         if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
-            testEnemy.GetDamage(damage);
-            OnAttackEvent?.Invoke();
-
+            
             BlackHole item = Instantiate(_blackHole, transform.position, Quaternion.identity);
             item.Boom();
+            testEnemy.GetDamage(damage);
+            OnAttackEvent?.Invoke();
 
             m_RbCompo.velocity = Vector2.zero;
             StartCoroutine(DestroedObject());
