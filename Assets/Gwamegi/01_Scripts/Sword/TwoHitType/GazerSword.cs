@@ -15,12 +15,12 @@ public class GazerSword : Sword
     {
         if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
-            testEnemy.GetDamage(damage);
-            OnAttackEvent?.Invoke();
+            
 
             Laser item = Instantiate(_laser, transform.position, Quaternion.identity);
             item.LayerShot();
-
+            testEnemy.GetDamage(damage);
+            OnAttackEvent?.Invoke();
             m_RbCompo.velocity = Vector2.zero;
             StartCoroutine(DestroedObject());
 
