@@ -9,6 +9,8 @@ public class GetWeapon : MonoSingleton<GetWeapon>
 {
     public UnityEvent OnPickUpSword;
 
+    [SerializeField] private GameObject _getUI;
+
     private SwordDataContains _swordData;
     private Image _weaponInfoIcon;
     private GameObject _destroySword;
@@ -25,12 +27,18 @@ public class GetWeapon : MonoSingleton<GetWeapon>
         _weaponInfoIcon = GameObject.Find("WeaponIcon").GetComponent<Image>();
     }
 
+    private void Start()
+    {
+        _getUI.SetActive(false);
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (!_canPickUp)
         {
             if (collision.gameObject.TryGetComponent(out SwordDataContains swordData))
             {
+                _getUI.SetActive(true);
                 _canPickUp = true;
                 _swordData = swordData;
                 _destroySword = collision.gameObject;
@@ -42,6 +50,7 @@ public class GetWeapon : MonoSingleton<GetWeapon>
     {
         if (collision.gameObject.TryGetComponent(out SwordDataContains swordData))
         {
+            _getUI.SetActive(false);
             _canPickUp = false;
         }
     }
@@ -50,7 +59,7 @@ public class GetWeapon : MonoSingleton<GetWeapon>
     {
         if (_swordData != null && _canPickUp)
         {
-            if (Input.GetKeyDown(KeyCode.F) && WeaponThrow.Instance.isOwnWeapon)
+            if (Input.GetMouseButtonDown(1) && WeaponThrow.Instance.isOwnWeapon)
             {
                 _weaponInfoIcon.enabled = true;
                 _weaponInfoIcon.sprite = _swordData.GetSwordSprite();
