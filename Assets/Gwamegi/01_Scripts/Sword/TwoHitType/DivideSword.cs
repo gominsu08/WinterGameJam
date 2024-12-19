@@ -5,6 +5,7 @@ using UnityEngine;
 public class DivideSword : Sword
 {
     [SerializeField] private Projectile projectile;
+
     private void Awake()
     {
         m_Rotation = -135;
