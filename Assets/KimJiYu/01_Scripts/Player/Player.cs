@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoSingleton<Player>
 {
+    public Action OnDeathEvent;
+
     [field: SerializeField] public InputReader inputReader { get; private set; }
 
     public float _moveSpeed;
 
-    private bool _isDie;
+    public bool _isDie;
 
     private Health _health;
     private Rigidbody2D _rigid;
@@ -65,6 +68,7 @@ public class Player : MonoBehaviour
     private void Die()
     {
         _isDie = true;
+        OnDeathEvent?.Invoke();
         _anim.SetBool("Run", false);
         _anim.SetBool("Idle", false);
         _anim.SetBool("Die", true);
@@ -76,7 +80,7 @@ public class Player : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent(out CommonMob monster))
             {
-                //_health.GetHit((int)monster.Dmg);
+                //_health.GetHit((int)monster._dmg);
             }
         }
     }

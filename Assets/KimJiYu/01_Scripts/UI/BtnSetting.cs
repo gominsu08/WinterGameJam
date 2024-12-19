@@ -13,9 +13,16 @@ public class BtnSetting : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private TMP_Text _text;
 
+    private Color _oldColor;
+
     private void Awake()
     {
         _text = GetComponentInChildren<TMP_Text>();
+    }
+
+    private void Start()
+    {
+        _oldColor = _text.color;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -36,7 +43,7 @@ public class BtnSetting : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void DiscardText()
     {
-        _text.color = Color.white;
+        _text.color = _oldColor;
         _text.transform.DOScale(Vector3.one, 0.1f);
     }
 
