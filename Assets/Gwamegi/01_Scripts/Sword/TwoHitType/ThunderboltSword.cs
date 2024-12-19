@@ -13,7 +13,7 @@ public class ThunderboltSword : Sword
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy))
+        if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
             //적한테 데미지 들어가는 부분 제대로 만들어야함
             testEnemy.GetDamage(damage);
@@ -21,6 +21,7 @@ public class ThunderboltSword : Sword
             m_RbCompo.velocity = Vector2.zero;
             OnAttackEvent?.Invoke();
             StartCoroutine(DestroedObject());
+            isCanHit = false;
         }
     }
 }

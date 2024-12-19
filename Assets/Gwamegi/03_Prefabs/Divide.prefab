@@ -134,8 +134,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65536
   m_RbCompo: {fileID: 1858721535092604846}
+  m_LifeTime: 2.5
   _speed: 20
   _visual: {fileID: 2067574147470405356}
+  _direction: {x: 0, y: 0}
 --- !u!50 &1858721535092604846
 Rigidbody2D:
   serializedVersion: 4

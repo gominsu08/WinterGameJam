@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d773dc54703fea346b5a879feed40947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _swordDataSO: {fileID: 11400000, guid: 5315f037a9a9b974490b1d7f34c66114, type: 2}
+  _swordDataSO: {fileID: 11400000, guid: 49ee3e21faa210c4c9adc7aa305920c9, type: 2}
   _ObstacleLayerMask:
     serializedVersion: 2
     m_Bits: 98304
