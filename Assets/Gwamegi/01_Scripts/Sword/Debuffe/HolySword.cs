@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class HolySword : Sword
 {
     private float deBuffeRadius = 3;
     [SerializeField] private LayerMask _enemyLayerMask;
+    [SerializeField] private ParticleSystem _particle;
 
     private void Awake()
     {
@@ -23,7 +25,10 @@ public class HolySword : Sword
 
             foreach (Collider2D item in col)
             {
-                item.GetComponent<CommonMob>().ZeroSpeed();
+                CommonMob mon = item.GetComponent<CommonMob>();
+                mon.ZeroSpeed();
+                mon.TimeResetSpeedCoroutine(2);
+                Instantiate(_particle, mon.gameObject.transform.position, Quaternion.identity);
             }
 
 

@@ -30,7 +30,7 @@ public abstract class Sword : MonoBehaviour
         m_RbCompo = GetComponent<Rigidbody2D>();
 
         damage = m_SwordDataSO.damage;
-        speed = m_SwordDataSO.speed;
+        speed = m_SwordDataSO.speed * 2;
         intersection = m_SwordDataSO.intersection;
         pickUpDelayTime = m_SwordDataSO.pickUpDelayTime;
         minSize = m_SwordDataSO.minSize;

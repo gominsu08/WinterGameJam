@@ -169,8 +169,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0018434823, y: 0.119598985}
-  m_Size: {x: 0.32478893, y: 1.8142774}
+  m_Offset: {x: -0.014014721, y: 0.014112353}
+  m_Size: {x: 0.41404724, y: 1.6033041}
   m_Direction: 0
 --- !u!50 &2281183317582033918
 Rigidbody2D:
@@ -226,3 +226,4 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 65536
+  _particle: {fileID: 303376905537104373, guid: 61e685e6bee022a4087d373365912172, type: 3}

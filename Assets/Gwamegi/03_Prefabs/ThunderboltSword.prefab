@@ -169,8 +169,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0018434823, y: 0.18589312}
-  m_Size: {x: 0.32478893, y: 1.9468657}
+  m_Offset: {x: -0.0018434823, y: 0.019855857}
+  m_Size: {x: 0.32478893, y: 1.6147912}
   m_Direction: 0
 --- !u!50 &1523362014349187468
 Rigidbody2D:
@@ -219,4 +219,8 @@ MonoBehaviour:
   pickUpDelayTime: 0
   minSize: 0
   maxSize: 0
+  OnAttackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isCanHit: 0
   projectile: {fileID: 6341304578473947924, guid: 651354bd167c8774eaa28fc18ecf8b21, type: 3}
