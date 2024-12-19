@@ -203,13 +203,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 1
-  SlideEA: 50
+  SlideEA: 10
   SlideTime: 0.01
-  RedMin: 0
+  RedMin: 255
   RedMax: 255
-  GreenMin: 0
+  GreenMin: 255
   GreenMax: 255
-  BlueMin: 0
+  BlueMin: 255
   BlueMax: 255
 --- !u!1 &4364164253060774070
 GameObject:
@@ -357,6 +357,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isCanDuobleAttack: 0
 --- !u!1 &8840550535562082714
 GameObject:
   m_ObjectHideFlags: 0
