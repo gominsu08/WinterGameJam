@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 25_Magic
   m_EditorClassIdentifier: 
   swordNumber: 25
-  damage: 40
+  damage: 50
   speed: 12
-  intersection: 7
+  intersection: 4
   pickUpDelayTime: 0.5
   minSize: 0.5
   maxSize: 7
-  swordGroupEnum: 1
+  swordGroupEnum: 2
   swordSprite: {fileID: 994279180, guid: 97dc31c84f41d9e488592d7fd01fb796, type: 3}
