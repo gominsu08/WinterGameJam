@@ -58,3 +58,6 @@ TagManager:
   - name: Monster
     uniqueID: 1566979715
     locked: 0
+  - name: Agent
+    uniqueID: 1524654843
+    locked: 0
