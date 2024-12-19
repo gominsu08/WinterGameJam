@@ -19,5 +19,5 @@ MonoBehaviour:
   pickUpDelayTime: 0.7
   minSize: 0.5
   maxSize: 3
-  swordGroupEnum: 0
+  swordGroupEnum: 1
   swordSprite: {fileID: -1079905353, guid: a07e17a44303c1f42a60ab7f0b097fe2, type: 3}
