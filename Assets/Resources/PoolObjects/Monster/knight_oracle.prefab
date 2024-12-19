@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 4002499151495402494}
   - component: {fileID: 7006582048876936831}
   m_Layer: 16
-  m_Name: Knight_oracle
+  m_Name: knight_oracle
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   _swordGropEnums: 0100000000000000
   _spriteRenderer: {fileID: 4584414404239121050}
   _swordSpriteRenderer: {fileID: 8884127479917924220}
-  _dropPercent: 60
+  _dropPercent: 30
 --- !u!50 &7755168685833346301
 Rigidbody2D:
   serializedVersion: 4
