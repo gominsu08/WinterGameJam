@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: SoundListSo
   m_EditorClassIdentifier: 
   Sounds:
-  - {fileID: 11400000, guid: a5f5e52591c939440b96c20e7832ce51, type: 2}
-  - {fileID: 11400000, guid: 86dd99ef9b6b36d439ad486db8607afd, type: 2}
+  - {fileID: 11400000, guid: 4348fa0543e8aa94ea128d1c6ca35a5c, type: 2}
+  - {fileID: 11400000, guid: dcb0bcb003578054180ede26b53c4df4, type: 2}
+  - {fileID: 11400000, guid: f6273d9789f02b3469854bb315c20212, type: 2}
+  - {fileID: 11400000, guid: e8b15a73e1f41134db921cea4222c2aa, type: 2}
+  - {fileID: 11400000, guid: 1e98fe6d1e8fdae4e99b652cfd977f14, type: 2}
+  - {fileID: 11400000, guid: 2d7382e644b4af94f8a8ea33febacc64, type: 2}

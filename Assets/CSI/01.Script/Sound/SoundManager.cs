@@ -11,7 +11,6 @@ public class SoundManager : MonoSingleton<SoundManager>
 
     private void Start()
     {
-        PlaySound("backGround");
     }
 
 

@@ -47,8 +47,9 @@ public class GetWeapon : MonoBehaviour
     {
         if (_swordData != null && _canPickUp)
         {
-            if (Input.GetMouseButtonDown(0) && WeaponThrow.Instance.isOwnWeapon)
+            if (Input.GetKeyDown(KeyCode.F) && WeaponThrow.Instance.isOwnWeapon)
             {
+                SoundManager.Instance.PlaySound("GetSword");
                 _weaponInfoIcon.enabled = true;
                 _weaponInfoIcon.sprite = _swordData.GetSwordSprite();
                 WeaponThrow.Instance.isPickUp = true;
