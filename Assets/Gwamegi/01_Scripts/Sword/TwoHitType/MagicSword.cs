@@ -15,7 +15,6 @@ public class MagicSword : Sword
     {
         if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
-            testEnemy.GetDamage(damage);
             OnAttackEvent?.Invoke();
 
             BookBoom item = Instantiate(_bookBoom, transform.position, Quaternion.identity);
@@ -24,6 +23,7 @@ public class MagicSword : Sword
             m_RbCompo.velocity = Vector2.zero;
             StartCoroutine(DestroedObject());
 
+            testEnemy.GetDamage(damage);
             isCanHit = false;
         }
     }

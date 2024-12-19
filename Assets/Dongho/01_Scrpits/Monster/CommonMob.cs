@@ -44,7 +44,7 @@ public class CommonMob : MonoBehaviour
         StartCoroutine(CheckTargetPosition(UnityEngine.Random.Range(0.5f, 3f)));
         GetComponent<CapsuleCollider2D>().enabled = true;
         if (_speed == 0)
-            _speed = speed;
+            ResetSpeed();
         else
             speed = _speed;
     }
@@ -64,7 +64,7 @@ public class CommonMob : MonoBehaviour
     }
     private void SwordInit()
     {
-        if(UnityEngine.Random.Range(1,101) < _dropPercent)
+        if(UnityEngine.Random.Range(0,101) < _dropPercent)
         {
             int rand = UnityEngine.Random.Range(0, _swordGropEnums.Count);
             _sword = _swordObjList.GetSword(_swordGropEnums[rand]);
@@ -92,19 +92,37 @@ public class CommonMob : MonoBehaviour
         else
             _animator.SetBool("Move", true);
     }
-    public void GetDamage(float damage)
-    {
-        _animator.SetBool("Move", false);
-        _animator.SetTrigger("Hit");
-        _animator.ResetTrigger("Dead");
-        _animator.Play("Hit");
 
-        _hp -= damage;
-        if (_hp <= 0)
+    public void ResetSpeed()
+    {
+        _speed = speed;
+    }
+
+    public void TickDamage(int count, int damage)
+    {
+        StartCoroutine(TakeTimeDamage(count, damage));
+    }
+
+    public IEnumerator TakeTimeDamage(int count,int damage)
+    {
+        for (int i = 0; i < count; i++)
         {
-            Dead();
+            GetDamage(damage);
+            yield return new WaitForSeconds(1f);
         }
     }
+
+    public void TimeResetSpeedCoroutine(int time)
+    {
+        StartCoroutine(TimeResetSpeed(time));
+    }
+
+    public IEnumerator TimeResetSpeed(float time)
+    {
+        yield return new WaitForSeconds(time);
+        ResetSpeed();
+    }
+
     private void Dead()
     {
         _animator.SetBool("Move", false);
@@ -119,7 +137,19 @@ public class CommonMob : MonoBehaviour
         TopUI.instance.PlusCoin(_coin);
         TopUI.instance.SetEnemyCount(--WaveManager.Instance.enemyCount);
     }
-    
+    public void GetDamage(float damage)
+    {
+        _animator.SetBool("Move", false);
+        _animator.SetTrigger("Hit");
+        _animator.ResetTrigger("Dead");
+        _animator.Play("Hit");
+
+        _hp -= damage;
+        if(_hp <= 0)
+        {
+            Dead();
+        }
+    }
     private IEnumerator CheckTargetPosition(float time)
     {
         _targetPosition = _targetObject.position - transform.position;
@@ -149,9 +179,9 @@ public class CommonMob : MonoBehaviour
             obj.transform.position = transform.position;
         }
     }
-    public void DownSpeed(int percent)
+    public void DownSpeed()
     {
-        _speed *= percent / 100;
+        _speed *= 0.5f;
     }
     public void ZeroSpeed()
     {
@@ -161,6 +191,18 @@ public class CommonMob : MonoBehaviour
     {
         _speed *= -1;
     }
+
+    public void TimeFlipSpeed(int time)
+    {
+        StartCoroutine(TimeFlipSpeedCoroutine(time));
+    }
+
+    public IEnumerator TimeFlipSpeedCoroutine(int time)
+    {
+        yield return new WaitForSeconds(time);
+        FilpSpeed();
+    }
+
     public void SecDamage(int time, int damage)
     {
         StartCoroutine(SecDamageCoroutine(time, damage));
