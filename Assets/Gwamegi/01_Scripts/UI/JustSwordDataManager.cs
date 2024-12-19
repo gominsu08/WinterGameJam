@@ -24,6 +24,11 @@ public class JustSwordDataManager : MonoSingleton<JustSwordDataManager>
     private float _size = 1f;
     private float _pickDelay = 0.5f;
 
+    public int atkBuyGold = 10;
+    public int speedBuyGold = 10;
+    public int rangeBuyGold = 10;
+    public int pickBuyGold = 10;
+
     public int GetAtk() => _atk;
     public float GetSpeed() => _speed;
     public float GetRange() => _range;
