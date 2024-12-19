@@ -54,10 +54,10 @@ public class MonsterSpawnManager : MonoBehaviour
                 {
                     value.transform.position = position;
                     value.GetComponent<CommonMob>().SetName("Knight_oracle");
-
                 });
             }
-            TopUI.instance.SetEnemyCount(monsterCount);
+            WaveManager.Instance.enemyCount = monsterCount;
+            TopUI.instance.SetEnemyCount(WaveManager.Instance.enemyCount);
             return;
         }
         if (_waveCount <= 7)
@@ -101,7 +101,6 @@ public class MonsterSpawnManager : MonoBehaviour
                 {
                     value.transform.position = position;
                     value.GetComponent<CommonMob>().SetName("Wanderer_knight");
-
                 });
             }
             else
@@ -134,6 +133,7 @@ public class MonsterSpawnManager : MonoBehaviour
                 rand += 20;
             }
         }
+
         for (int j = 0; j < CSVReader.instance.dicMenu[_waveCount].monsters.Length; j++)
         {
             for (int i = 0; i < int.Parse(CSVReader.instance.dicMenu[_waveCount].monsterNumber[j]); i++)
@@ -147,8 +147,9 @@ public class MonsterSpawnManager : MonoBehaviour
                 PoolMonster(position, j);
             }
         }
-        TopUI.instance.SetEnemyCount(monsterCount);
-
+        WaveManager.Instance.enemyCount = monsterCount;
+        Debug.Log(monsterCount);
+        TopUI.instance.SetEnemyCount(WaveManager.Instance.enemyCount);
     }
     private void PoolMonster(Vector2 position, int n)
     {
