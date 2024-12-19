@@ -9,17 +9,17 @@ public class MonsterSpawnManager : MonoBehaviour
     [SerializeField] private Tilemap _tilemap;
 
     private Transform _playerTransform;
-    private int _waveCount = 1;
+    private int _waveCount = 0;
 
     private void Start()
     {
-        StartCoroutine(das());
+        TopUI.instance.OnNextWave += () =>
+        {
+            _waveCount++;
+            Debug.Log(_waveCount);
+            SpawnMonster(); 
+        };
         _playerTransform = GameObject.FindWithTag("Player").transform;
-    }
-    private IEnumerator das()
-    {
-        yield return new WaitForSeconds(0.5f);
-        SpawnMonster();
     }
     public void SpawnMonster()
     {
@@ -35,12 +35,19 @@ public class MonsterSpawnManager : MonoBehaviour
                 PoolMonster(position, j);
             }
         }
+        int monsterCount = 0;
+        for (int i = 0; i < CSVReader.instance.dicMenu[_waveCount].monsterNumber.Length; i++)
+        {
+            monsterCount += int.Parse(CSVReader.instance.dicMenu[_waveCount].monsterNumber[i]);
+        }
+        TopUI.instance.SetEnemyCount(monsterCount);
     }
     private void PoolMonster(Vector2 position, int n)
     {
         PoolManager.instance.PoolingObj(CSVReader.instance.dicMenu[_waveCount].monsters[n]).Get((value) =>
         {
             value.transform.position = position;
+            value.GetComponent<CommonMob>().SetName(CSVReader.instance.dicMenu[_waveCount].monsters[n]);
         });
     }
     private Vector2 GetRandomPointInTilemap()

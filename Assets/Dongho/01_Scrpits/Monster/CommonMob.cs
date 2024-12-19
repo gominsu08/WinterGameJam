@@ -13,6 +13,7 @@ public class CommonMob : MonoBehaviour
     [SerializeField] private int _coin;
     [SerializeField] private LayerMask _targetLayer;
 
+    private string _name;
     private SpriteRenderer _spriteRenderer;
     private Sprite _sprite;
     private Transform _targetObject;
@@ -31,7 +32,7 @@ public class CommonMob : MonoBehaviour
     private void Start()
     {
         _sprite = _spriteRenderer.sprite;
-        StartCoroutine(CheckTargetPosition(2f)); 
+        StartCoroutine(CheckTargetPosition(2f));
     }
 
     private void Update()
@@ -39,6 +40,10 @@ public class CommonMob : MonoBehaviour
         Move();
     }
 
+    public void SetName(string name)
+    {
+        _name = name;
+    }
     private void SwordInit(GameObject sword)
     {
         // 무기 쥐어주면 될 듯
@@ -70,6 +75,7 @@ public class CommonMob : MonoBehaviour
 
         StartCoroutine(AfterDeadCoroutine(UnityEngine.Random.Range(1, 3)));
         TopUI.instance.GetCoin(_coin);
+        TopUI.instance.SetEnemyCount(--WaveManager.enemyCount);
 
         _animator.Play("Dead");
     }
@@ -104,6 +110,32 @@ public class CommonMob : MonoBehaviour
     private void AfterDead()
     {
         transform.DOScale(0, 1);
+        PoolManager.instance.poolDictionary[_name].Return(this.gameObject);
+    }
+    public void DownSpeed(int percent)
+    {
+        _speed *= percent / 100;
+    }
+    public void ZeroSpeed()
+    {
+        _speed *= 0;
+    }
+    public void FilpSpeed()
+    {
+        _speed *= -1;
+    }
+    public void SecDamage(int time, int damage)
+    {
+        StartCoroutine(SecDamageCoroutine(time, damage));
+    }
+    private IEnumerator SecDamageCoroutine(int time, int damage)
+    {
+        GetDamage(damage);
+        yield return new WaitForSeconds(1f);
+        time--;
+        if (time <= 0)
+            StopCoroutine("SecDamageCoroutine");
+        StartCoroutine(SecDamageCoroutine(time, damage));
     }
 }
 
