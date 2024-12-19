@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8484148388089312563}
   - component: {fileID: -4849109064909926182}
   - component: {fileID: 3641305304486877959}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Mercenary_leader
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &5696131055102053300
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 9136601653624595852}
   - component: {fileID: 8675087916929605292}
   - component: {fileID: 5792104102595270267}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

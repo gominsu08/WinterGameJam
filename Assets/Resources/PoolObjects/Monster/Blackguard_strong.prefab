@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9161613801894329591}
   - component: {fileID: 3718311663258311006}
   - component: {fileID: 536694548581708100}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 1154218990819777159}
   - component: {fileID: -5440278455557526704}
   - component: {fileID: 7254272705123751618}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Blackguard_strong
   m_TagString: Enemy
   m_Icon: {fileID: 0}

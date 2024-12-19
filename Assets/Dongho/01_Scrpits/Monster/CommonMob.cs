@@ -26,17 +26,27 @@ public class CommonMob : MonoBehaviour
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _targetObject = GameObject.FindWithTag("Player").transform;
+        print(_targetObject);
         _animator = GetComponentInChildren<Animator>();
         _rigid = GetComponent<Rigidbody2D>();
     }
     private void Start()
     {
         _sprite = _spriteRenderer.sprite;
-        StartCoroutine(CheckTargetPosition(2f));
+        
+    }
+    private void OnEnable()
+    {
+        StartCoroutine(CheckTargetPosition(1f));
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Dead();
+        }
+
         Move();
     }
 
@@ -70,24 +80,26 @@ public class CommonMob : MonoBehaviour
     private void Dead()
     {
         _animator.SetBool("Move", false);
-        _animator.ResetTrigger("Hit");
-        _animator.SetTrigger("Dead");
+        //_animator.ResetTrigger("Hit");
+        //_animator.SetTrigger("Dead");
+        _animator.Play("Dead");
 
         StartCoroutine(AfterDeadCoroutine(UnityEngine.Random.Range(1, 3)));
         TopUI.instance.GetCoin(_coin);
         TopUI.instance.SetEnemyCount(--WaveManager.enemyCount);
-
-        _animator.Play("Dead");
     }
     public void GetDamage(float damage)
     {
         _animator.SetBool("Move", false);
-        _animator.SetTrigger("Hit");
-        _animator.ResetTrigger("Dead");
+        //_animator.SetTrigger("Hit");
+        //_animator.ResetTrigger("Dead");
+        _animator.Play("Hit");
 
         _hp -= damage;
-
-        _animator.Play("Hit");
+        if(_hp <= 0)
+        {
+            Dead();
+        }
     }
     private IEnumerator CheckTargetPosition(float time)
     {
@@ -109,7 +121,8 @@ public class CommonMob : MonoBehaviour
     }
     private void AfterDead()
     {
-        transform.DOScale(0, 1);
+        _rigid.velocity = Vector3.zero;
+        //transform.DOScale(0, 10);
         PoolManager.instance.poolDictionary[_name].Return(this.gameObject);
     }
     public void DownSpeed(int percent)

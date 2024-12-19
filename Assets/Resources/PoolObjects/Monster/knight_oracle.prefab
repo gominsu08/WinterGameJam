@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2073354309183195881}
   - component: {fileID: 4584414404239121050}
   - component: {fileID: 3456462391578550702}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,8 +118,8 @@ GameObject:
   - component: {fileID: 4383487253365507087}
   - component: {fileID: 1386449664867874815}
   - component: {fileID: 7755168685833346301}
-  m_Layer: 0
-  m_Name: knight_oracle
+  m_Layer: 16
+  m_Name: Knight_oracle
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

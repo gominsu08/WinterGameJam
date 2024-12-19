@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5314331636089633787}
   - component: {fileID: -4350266845686371653}
   - component: {fileID: 3679631493835716225}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Blackguard_normal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -51,10 +51,10 @@ MonoBehaviour:
   _hp: 10
   _speed: 3
   _attackTargetDistance: 1.5
+  _coin: 3
   _targetLayer:
     serializedVersion: 2
     m_Bits: 128
-  _coin: 3
 --- !u!61 &-4350266845686371653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 623016016256890568}
   - component: {fileID: 7041418104550028860}
   - component: {fileID: 7540777602153247398}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
