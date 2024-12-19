@@ -118,7 +118,6 @@ GameObject:
   - component: {fileID: 530882235136649111}
   - component: {fileID: -2836433607798083954}
   - component: {fileID: 7526530947543689060}
-  - component: {fileID: 1796992214773624982}
   m_Layer: 16
   m_Name: Wanderer_explorer
   m_TagString: Enemy
@@ -240,18 +239,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1796992214773624982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6767343119388814436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bbb820d9fe1bf24e9cf140e19662028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9168577923808504458
 GameObject:
   m_ObjectHideFlags: 0

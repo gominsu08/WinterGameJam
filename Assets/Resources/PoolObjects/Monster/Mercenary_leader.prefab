@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8484148388089312563}
   - component: {fileID: -4849109064909926182}
   - component: {fileID: 3641305304486877959}
-  - component: {fileID: -6193778884115586292}
   m_Layer: 16
   m_Name: Mercenary_leader
   m_TagString: Enemy
@@ -61,7 +60,7 @@ MonoBehaviour:
   _swordGropEnums: 0200000001000000
   _spriteRenderer: {fileID: 8675087916929605292}
   _swordSpriteRenderer: {fileID: 340044938884105691}
-  _dropPercent: 90
+  _dropPercent: 50
 --- !u!61 &-4849109064909926182
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134,18 +133,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-6193778884115586292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2329314482722310892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bbb820d9fe1bf24e9cf140e19662028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4339793002790281735
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3672258854055327781}
   - component: {fileID: 5215758441305267686}
   - component: {fileID: 2130276956777912546}
-  - component: {fileID: 3208830426775226268}
   m_Layer: 16
   m_Name: Blackguard_rapid
   m_TagString: Enemy
@@ -61,7 +60,7 @@ MonoBehaviour:
   _swordGropEnums: 0400000003000000
   _spriteRenderer: {fileID: 1686649783906296774}
   _swordSpriteRenderer: {fileID: 1303773760738294893}
-  _dropPercent: 50
+  _dropPercent: 20
 --- !u!61 &5215758441305267686
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134,18 +133,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3208830426775226268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4070088377197682293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bbb820d9fe1bf24e9cf140e19662028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7962638849746468699
 GameObject:
   m_ObjectHideFlags: 0
