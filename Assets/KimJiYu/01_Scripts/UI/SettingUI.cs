@@ -8,9 +8,6 @@ public class SettingUI : MonoBehaviour
     [SerializeField] private Image _touchBlocker;
     [SerializeField] private GameObject _bgTouchBlocker;
 
-    private GameObject _itemParentobj;
-    private Transform _itemParent;
-
     private Image _settingPanel;
     private Sequence _sequence;
     public bool _isMovingPanel { get; set; } = false;
@@ -32,7 +29,7 @@ public class SettingUI : MonoBehaviour
 
     private void Update()
     {
-        if (!_isMovingPanel && Input.GetKeyDown(KeyCode.Escape))
+        if (!_isMovingPanel && Input.GetKeyDown(KeyCode.Escape) && !Player.Instance._isDie)
         {
             if (_isPanelVisible)
                 HidePanel();

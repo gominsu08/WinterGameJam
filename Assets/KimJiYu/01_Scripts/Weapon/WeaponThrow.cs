@@ -15,7 +15,7 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
     private Player _player;
     private GetWeapon _currentWeaponData;
     private Image _weaponInfoIcon;
-    
+    private SettingUI _setting;
 
     public int _currentWeaponId;
     public bool isOwnWeapon = false;
@@ -30,6 +30,7 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
 
     private void Awake()
     {
+        _setting = GameObject.Find("Setting").GetComponent<SettingUI>();
         _player = GetComponentInParent<Player>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
         _weaponInfoIcon = GameObject.Find("WeaponIcon").GetComponent<Image>();
@@ -38,19 +39,21 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
 
     private void Start()
     {
-        
+        isOwnWeapon = true;
+        _sprite.enabled = false;
+        _weaponInfoIcon.enabled = false;
     }
 
     private void Update()
     {
         _currentWeaponId = _currentWeaponData.swordId;
 
-        if (Input.GetMouseButton(0) && !isOwnWeapon)
+        if (Input.GetMouseButton(0) && !isOwnWeapon && !_setting._isMovingPanel && !_setting._isPanelVisible)
         {
             OnCharge?.Invoke();
             ChargeWeapon();
         }
-        else if (Input.GetMouseButtonUp(0) && !_minThrow && !isOwnWeapon)
+        else if (Input.GetMouseButtonUp(0) && !_minThrow && !isOwnWeapon && !_setting._isMovingPanel && !_setting._isPanelVisible)
             ThrowWeapon();
     }
 
