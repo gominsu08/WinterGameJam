@@ -71,7 +71,6 @@ public class MonsterSpawnManager : MonoBehaviour
                 {
                     position = GetRandomPointInTilemap();
                 }
-                RandomPoolMonster(position);
 
                 PoolManager.instance.PoolingObj("Wanderer_explorer").Get((value) =>
                 {
@@ -95,7 +94,6 @@ public class MonsterSpawnManager : MonoBehaviour
                 {
                     position = GetRandomPointInTilemap();
                 }
-                RandomPoolMonster(position);
 
                 PoolManager.instance.PoolingObj("Wanderer_knight").Get((value) =>
                 {
@@ -119,13 +117,11 @@ public class MonsterSpawnManager : MonoBehaviour
                 {
                     position = GetRandomPointInTilemap();
                 }
-                RandomPoolMonster(position);
 
                 PoolManager.instance.PoolingObj("Wanderer_darkknight").Get((value) =>
                 {
                     value.transform.position = position;
                     value.GetComponent<CommonMob>().SetName("Wanderer_darkknight");
-
                 });
             }
             else
