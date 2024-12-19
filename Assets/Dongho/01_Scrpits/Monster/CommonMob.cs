@@ -64,7 +64,7 @@ public class CommonMob : MonoBehaviour
     }
     private void SwordInit()
     {
-        if(UnityEngine.Random.Range(0,101) < _dropPercent)
+        if(UnityEngine.Random.Range(1,101) < _dropPercent)
         {
             int rand = UnityEngine.Random.Range(0, _swordGropEnums.Count);
             _sword = _swordObjList.GetSword(_swordGropEnums[rand]);
@@ -92,6 +92,19 @@ public class CommonMob : MonoBehaviour
         else
             _animator.SetBool("Move", true);
     }
+    public void GetDamage(float damage)
+    {
+        _animator.SetBool("Move", false);
+        _animator.SetTrigger("Hit");
+        _animator.ResetTrigger("Dead");
+        _animator.Play("Hit");
+
+        _hp -= damage;
+        if (_hp <= 0)
+        {
+            Dead();
+        }
+    }
     private void Dead()
     {
         _animator.SetBool("Move", false);
@@ -106,19 +119,7 @@ public class CommonMob : MonoBehaviour
         TopUI.instance.PlusCoin(_coin);
         TopUI.instance.SetEnemyCount(--WaveManager.Instance.enemyCount);
     }
-    public void GetDamage(float damage)
-    {
-        _animator.SetBool("Move", false);
-        _animator.SetTrigger("Hit");
-        _animator.ResetTrigger("Dead");
-        _animator.Play("Hit");
-
-        _hp -= damage;
-        if(_hp <= 0)
-        {
-            Dead();
-        }
-    }
+    
     private IEnumerator CheckTargetPosition(float time)
     {
         _targetPosition = _targetObject.position - transform.position;
