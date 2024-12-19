@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 8118361765294325954}
   - component: {fileID: 6534753303590909833}
   - component: {fileID: -4371640133044497483}
+  - component: {fileID: -661352898590462363}
   m_Layer: 16
   m_Name: Wanderer_knight
   m_TagString: Enemy
@@ -239,6 +240,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-661352898590462363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4403170637809336998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbb820d9fe1bf24e9cf140e19662028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4907969652312583372
 GameObject:
   m_ObjectHideFlags: 0

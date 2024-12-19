@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3813836180918573580}
   - component: {fileID: 844489369329470698}
   - component: {fileID: -2520866232618796013}
+  - component: {fileID: 5712871192679117053}
   m_Layer: 16
   m_Name: Mercenary_1
   m_TagString: Enemy
@@ -144,7 +145,7 @@ MonoBehaviour:
   _swordGropEnums: 0300000002000000
   _spriteRenderer: {fileID: 985675077030135828}
   _swordSpriteRenderer: {fileID: 3879742398469195679}
-  _dropPercent: 20
+  _dropPercent: 50
 --- !u!61 &844489369329470698
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -217,6 +218,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5712871192679117053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751177337155952283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbb820d9fe1bf24e9cf140e19662028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4327317817275999104
 GameObject:
   m_ObjectHideFlags: 0

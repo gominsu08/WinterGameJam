@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 142514205709003570}
   - component: {fileID: 409815343289401382}
   - component: {fileID: 8166934047818506617}
+  - component: {fileID: -730950542277796904}
   m_Layer: 16
   m_Name: Blackguard_leader
   m_TagString: Enemy
@@ -166,7 +167,7 @@ MonoBehaviour:
   _swordGropEnums: 04000000
   _spriteRenderer: {fileID: 4981109408440940703}
   _swordSpriteRenderer: {fileID: 9026300989002944491}
-  _dropPercent: 30
+  _dropPercent: 90
 --- !u!61 &409815343289401382
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -239,6 +240,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-730950542277796904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360301551503254061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbb820d9fe1bf24e9cf140e19662028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5549154584593191054
 GameObject:
   m_ObjectHideFlags: 0

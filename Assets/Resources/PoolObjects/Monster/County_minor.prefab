@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 7019114907944208262}
   - component: {fileID: -3768245505879439400}
   - component: {fileID: 7925357237636890583}
+  - component: {fileID: -4651203588946457216}
   m_Layer: 16
   m_Name: County_minor
   m_TagString: Enemy
@@ -250,7 +251,7 @@ MonoBehaviour:
   _swordGropEnums: 040000000300000002000000
   _spriteRenderer: {fileID: 5208198513872520702}
   _swordSpriteRenderer: {fileID: 3316975511018382227}
-  _dropPercent: 30
+  _dropPercent: 60
 --- !u!61 &-3768245505879439400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -323,3 +324,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-4651203588946457216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909115771971563795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbb820d9fe1bf24e9cf140e19662028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

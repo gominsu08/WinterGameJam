@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5314331636089633787}
   - component: {fileID: -4350266845686371653}
   - component: {fileID: 3679631493835716225}
+  - component: {fileID: 6906327270589783136}
   m_Layer: 16
   m_Name: Blackguard_normal
   m_TagString: Enemy
@@ -60,7 +61,7 @@ MonoBehaviour:
   _swordGropEnums: 0400000003000000
   _spriteRenderer: {fileID: 7041418104550028860}
   _swordSpriteRenderer: {fileID: 6061708936867385488}
-  _dropPercent: 20
+  _dropPercent: 50
 --- !u!61 &-4350266845686371653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,6 +134,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6906327270589783136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512878725508661766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbb820d9fe1bf24e9cf140e19662028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3385192936358361662
 GameObject:
   m_ObjectHideFlags: 0

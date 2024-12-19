@@ -102,7 +102,7 @@ public class CommonMob : MonoBehaviour
         _speed = 0;
         GetComponent<BoxCollider2D>().enabled = false;
 
-        StartCoroutine(AfterDeadCoroutine(UnityEngine.Random.Range(1f, 3f)));
+        StartCoroutine(AfterDeadCoroutine(UnityEngine.Random.Range(0.5f, 1.5f)));
         TopUI.instance.PlusCoin(_coin);
         TopUI.instance.SetEnemyCount(--WaveManager.Instance.enemyCount);
     }

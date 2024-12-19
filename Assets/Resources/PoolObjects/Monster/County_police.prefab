@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 461785621395535638}
   - component: {fileID: -6589226612160980582}
   - component: {fileID: -4706810621621530329}
+  - component: {fileID: 7437125331350959121}
   m_Layer: 16
   m_Name: County_police
   m_TagString: Enemy
@@ -60,7 +61,7 @@ MonoBehaviour:
   _swordGropEnums: 040000000300000002000000
   _spriteRenderer: {fileID: 7227871010417607864}
   _swordSpriteRenderer: {fileID: 784505561475502828}
-  _dropPercent: 30
+  _dropPercent: 60
 --- !u!61 &-6589226612160980582
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,6 +134,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7437125331350959121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676949898591077018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbb820d9fe1bf24e9cf140e19662028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4358294028949657389
 GameObject:
   m_ObjectHideFlags: 0
