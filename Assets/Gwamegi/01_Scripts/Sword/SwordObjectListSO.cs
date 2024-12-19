@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwordObjectListSO : ScriptableObject
 {
     public List<Sword> swords = new List<Sword>();
+    public List<Sword> tier_NS_Sword = new List<Sword>();
     public List<Sword> tier_S_Sword = new List<Sword>();
     public List<Sword> tier_A_Sword = new List<Sword>();
     public List<Sword> tier_B_Sword = new List<Sword>();
@@ -38,6 +39,8 @@ public class SwordObjectListSO : ScriptableObject
                     tier_C_Sword.Add(item); break;
                 case SwordGroupEnum.D:
                     tier_D_Sword.Add(item); break;
+                case SwordGroupEnum.NS:
+                    tier_NS_Sword.Add(item); break;
                 default: break;
             }
         }
@@ -49,6 +52,8 @@ public class SwordObjectListSO : ScriptableObject
         {
             switch (groupEnum)
             {
+                case SwordGroupEnum.NS:
+                    return tier_NS_Sword[Random.Range(0, tier_NS_Sword.Count)];
                 case SwordGroupEnum.S:
                     return tier_S_Sword[Random.Range(0, tier_S_Sword.Count)];
                 case SwordGroupEnum.A:

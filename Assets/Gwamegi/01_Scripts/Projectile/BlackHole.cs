@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class BlackHole : MonoBehaviour
 {
-    public float radius;
-    public float pullForce;
-    public LayerMask enemyMask;
+    public float pullSpeed = 40f;
+    public float pullInterval = 0.5f;
+    public float pullRadius = 5f;
+    public LayerMask enemyLayer;
 
-    public void Start()
+    private void Start()
     {
-        StartCoroutine(DestroyBlackHole());
         StartCoroutine(PullEnemies());
     }
 
@@ -19,31 +19,33 @@ public class BlackHole : MonoBehaviour
     {
         while (true)
         {
-            Collider[] enemies = Physics.OverlapSphere(transform.position, radius, enemyMask);
-            foreach (Collider enemy in enemies)
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, pullRadius, enemyLayer);
+
+            foreach (Collider2D enemy in enemies)
             {
-                Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
-                CommonMob mob = enemy.GetComponent<CommonMob>();
-                if (rb != null)
+                Transform enemyTransform = enemy.transform;
+
+                if (enemyTransform != null)
                 {
-                    if (mob != null) mob.GetDamage(15);
-                    Vector3 direction = (transform.position - enemy.transform.position).normalized;
-                    rb.AddForce(direction * pullForce, ForceMode2D.Impulse);
+                    Vector3 direction = (transform.position - enemyTransform.position).normalized;
+                    enemyTransform.position += direction * pullSpeed * Time.deltaTime;
                 }
             }
-            yield return new WaitForSeconds(0.5f);
+
+            yield return new WaitForSeconds(pullInterval);
         }
     }
 
     private void OnDrawGizmosSelected()
     {
+        // 블랙홀 효과의 범위를 시각적으로 확인하기 위해 Gizmos 그리기
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, pullRadius);
     }
 
     private IEnumerator DestroyBlackHole()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(15f);
         Destroy(gameObject);
     }
 }
