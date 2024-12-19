@@ -21,11 +21,11 @@ public class DivideSword : Sword
             project1.init(Vector2.up, transform.rotation);
             Projectile project2 = Instantiate(projectile, transform.position, Quaternion.identity);
             project2.init(Vector2.down, transform.rotation);
-            m_RbCompo.velocity = Vector2.zero;
-            StartCoroutine(DestroedObject());
+            //m_RbCompo.velocity = Vector2.zero;
+            //StartCoroutine(DestroedObject());
             testEnemy.GetDamage(damage);
 
-            isCanHit = false;
+            //isCanHit = false;
         }
     }
 }

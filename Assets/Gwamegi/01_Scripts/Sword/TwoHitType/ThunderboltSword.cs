@@ -17,11 +17,11 @@ public class ThunderboltSword : Sword
         {
             //적한테 데미지 들어가는 부분 제대로 만들어야함
             Instantiate(projectile,transform.position,transform.rotation);
-            m_RbCompo.velocity = Vector2.zero;
+            //m_RbCompo.velocity = Vector2.zero;
             OnAttackEvent?.Invoke();
-            StartCoroutine(DestroedObject());
+            //StartCoroutine(DestroedObject());
             testEnemy.GetDamage(damage);
-            isCanHit = false;
+            //isCanHit = false;
         }
     }
 }

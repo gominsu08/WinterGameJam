@@ -20,11 +20,11 @@ public class MagicSword : Sword
             BookBoom item = Instantiate(_bookBoom, transform.position, Quaternion.identity);
             item.Boom();
 
-            m_RbCompo.velocity = Vector2.zero;
-            StartCoroutine(DestroedObject());
+            //m_RbCompo.velocity = Vector2.zero;
+            //StartCoroutine(DestroedObject());
 
             testEnemy.GetDamage(damage);
-            isCanHit = false;
+            //isCanHit = false;
         }
     }
 }
