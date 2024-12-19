@@ -75,6 +75,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnMaxChargeEvent:
+    m_PersistentCalls:
+      m_Calls: []
   _sprite: {fileID: 0}
   _currentWeaponId: 0
   isOwnWeapon: 0
@@ -91,8 +94,9 @@ GameObject:
   - component: {fileID: 3002237570837095825}
   - component: {fileID: 6583718469605571617}
   - component: {fileID: 1400325966245000669}
+  - component: {fileID: 3273845200478728834}
   m_Layer: 0
-  m_Name: Visual
+  m_Name: PlayerVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,6 +190,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3273845200478728834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2463336525124072727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27696557bff6d74396aabee8dcb2390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 1
+  SlideEA: 50
+  SlideTime: 0.01
+  RedMin: 0
+  RedMax: 255
+  GreenMin: 0
+  GreenMax: 255
+  BlueMin: 0
+  BlueMax: 255
 --- !u!1 &4364164253060774070
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +450,10 @@ MonoBehaviour:
   OnPickUpSword:
     m_PersistentCalls:
       m_Calls: []
+  _getUI: {fileID: 0}
   _swordDataSO: {fileID: 11400000, guid: 3947adbaa8a3bfd47a23e7258b20c3b6, type: 2}
+  dis: 7
+  _canPickUp: 0
   swordId: 1
   weaponIcon: {fileID: 21300000, guid: 64077411851f07641af1e8347c412e32, type: 3}
 --- !u!1 &8948169578412858792
@@ -438,8 +466,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5202100483779198816}
   - component: {fileID: 5359075808609420761}
-  - component: {fileID: 8178461723130500672}
   - component: {fileID: 2929021375706317484}
+  - component: {fileID: 9172322883563325086}
   m_Layer: 7
   m_Name: TestPlayer
   m_TagString: Player
@@ -478,7 +506,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -493,8 +521,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &8178461723130500672
-BoxCollider2D:
+--- !u!114 &2929021375706317484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8948169578412858792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5edfec3ed69af45ac2873d23c104cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <inputReader>k__BackingField: {fileID: 11400000, guid: 3ec9413352a560e469b5357039d0fc57, type: 2}
+  _dashSpeed: 20
+  _dashDuration: 0.1
+  _dashCoolTime: 1
+  _moveSpeed: 8
+  _isDie: 0
+--- !u!70 &9172322883563325086
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -525,30 +571,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011307031, y: -0.19383457}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7706291, y: 1.122762}
-  m_EdgeRadius: 0
---- !u!114 &2929021375706317484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8948169578412858792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c5edfec3ed69af45ac2873d23c104cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <inputReader>k__BackingField: {fileID: 11400000, guid: 3ec9413352a560e469b5357039d0fc57, type: 2}
-  _moveSpeed: 8
+  m_Offset: {x: 0, y: -0.40052393}
+  m_Size: {x: 0.5, y: 0.69102436}
+  m_Direction: 0

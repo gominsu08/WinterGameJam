@@ -22,17 +22,24 @@ public class Player : MonoSingleton<Player>
     private Health _health;
     private Rigidbody2D _rigid;
     private Animator _anim;
+    private PlayerTrail _trail;
 
     private Vector2 _moveDir;
 
     private void Awake()
     {
+        _trail = FindAnyObjectByType<PlayerTrail>();
         _health = GameObject.Find("HP").GetComponent<Health>();
         inputReader.OnMove += GetMoveValue;
 
         _health.OnDeath += Die;
         _rigid = GetComponent<Rigidbody2D>();
         _anim = GetComponentInChildren<Animator>();
+    }
+
+    private void Start()
+    {
+        _trail.Active = false;
     }
 
     private void GetMoveValue(Vector2 dir)
@@ -54,7 +61,7 @@ public class Player : MonoSingleton<Player>
 
         Flip();
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && !_canDash)
         {
             StartCoroutine(Dash());
         }
@@ -75,11 +82,15 @@ public class Player : MonoSingleton<Player>
 
     private IEnumerator Dash()
     {
-        _canDash = false;
+        _canDash = true;
         _isDashing = true;
+        _trail.Active = true;
         _rigid.velocity = new Vector2(_moveDir.x * _dashSpeed, _moveDir.y * _dashSpeed);
         yield return new WaitForSeconds(_dashDuration);
         _isDashing = false;
+        _trail.Active = false;
+        yield return new WaitForSeconds(_dashCoolTime);
+        _canDash = false;
     }
 
     private void Flip()
@@ -99,7 +110,7 @@ public class Player : MonoSingleton<Player>
         _anim.SetBool("Die", true);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -112,7 +123,7 @@ public class Player : MonoSingleton<Player>
                     StartCoroutine(HitDelay());
                 }
             }
-            
+
         }
     }
 
