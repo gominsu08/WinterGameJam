@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47182be8a25ec5d4a993549c486e4fec, type: 3}
+  m_Name: 5_Raipier
+  m_EditorClassIdentifier: 
+  swordNumber: 5
+  damage: 15
+  speed: 20
+  intersection: 9
+  pickUpDelayTime: 1
+  minSize: 1
+  maxSize: 3
+  swordGroupEnum: 4
+  swordSprite: {fileID: -1650864785, guid: a07e17a44303c1f42a60ab7f0b097fe2, type: 3}
