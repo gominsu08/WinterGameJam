@@ -226,3 +226,4 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 65536
+  _particle: {fileID: 7023807588215207106, guid: 2d38d1a22e4685040ac6782dff9aef0a, type: 3}

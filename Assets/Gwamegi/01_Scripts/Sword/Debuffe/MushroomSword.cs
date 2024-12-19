@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class MushroomSword : Sword
 {
     private float deBuffeRadius = 4;
     [SerializeField] private LayerMask _enemyLayerMask;
+    [SerializeField] private ParticleSystem _particle;
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class MushroomSword : Sword
                 CommonMob mon = item.GetComponent<CommonMob>();
                 mon.FilpSpeed();
                 mon.TimeFlipSpeed(5);
+                Instantiate(_particle, mon.gameObject.transform);
             }
 
 
