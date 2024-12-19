@@ -8,7 +8,6 @@ public class TopUI : MonoBehaviour
 {
     public static TopUI instance;
     public event Action OnNextWave;
-    public event Action<int> OnChangeEnemyCount;
     public int coin
     { 
         get
@@ -51,21 +50,21 @@ public class TopUI : MonoBehaviour
         SetRemainTime(3);
     }
 
-    public int GetCoin(int getCoin)
+    public int PlusCoin(int getCoin)
     {
         coin += getCoin;
+        SetCoin();
         return coin;
     }
     public void SetCoin()
     {
+        PlayerDataManager.Instance.AddGold(_coin);
         _coinText.text = $"재화 : {_coin}";
     }
     public void SetEnemyCount(int enemy)
     {
-        if (enemy == 0)
+        if (WaveManager.Instance.enemyCount == 0)
             SetRemainTime(3);
-        OnChangeEnemyCount?.Invoke(enemy);
-        _enemyCount = enemy;
         _remaineEnemy.text = $"남은 적 : {enemy}";
         _remaineTime.gameObject.SetActive(false);
         _remaineEnemy.gameObject.SetActive(true);
@@ -80,7 +79,7 @@ public class TopUI : MonoBehaviour
         _remaineTime.gameObject.SetActive(true);
         _remaineTime.text = $"다음 웨이브까지 {time--}초...";
         yield return new WaitForSeconds(1f);
-        if (time < 0)
+        if (time <= 0)
         {
             OnNextWave?.Invoke();
             StopCoroutine("NextWaveTimerCoroutine");
