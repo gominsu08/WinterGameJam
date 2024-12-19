@@ -60,7 +60,7 @@ MonoBehaviour:
   _swordGropEnums: 0400000003000000
   _spriteRenderer: {fileID: 1686649783906296774}
   _swordSpriteRenderer: {fileID: 1303773760738294893}
-  _dropPercent: 50
+  _dropPercent: 20
 --- !u!50 &2130276956777912546
 Rigidbody2D:
   serializedVersion: 4
