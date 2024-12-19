@@ -81,7 +81,7 @@ public class GetWeapon : MonoSingleton<GetWeapon>
 
         if (_swordData != null && _canPickUp)
         {
-            if (Input.GetMouseButtonDown(1) && WeaponThrow.Instance.isOwnWeapon)
+            if (Input.GetMouseButtonDown(1) && WeaponThrow.Instance.isOwnWeapon && !Player.Instance._canDash && !Player.Instance._isDashing)
             {
                 Player.Instance._canDash = true;
                 _pickUpObj.SetActive(true);

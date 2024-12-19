@@ -17,7 +17,7 @@ public class Player : MonoSingleton<Player>
     public bool _isDie;
     private bool _hit;
     public bool _canDash;
-    private bool _isDashing;
+    public bool _isDashing;
 
     private Health _health;
     private Rigidbody2D _rigid;
