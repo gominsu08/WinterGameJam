@@ -153,10 +153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec62fcb8cbe83c4bb3dd466deb59ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 25
   _dmg: 16
+  _hp: 25
   _speed: 3
-  _attackTargetDistance: 2
+  _attackTargetDistance: 1.5
+  _coin: 8
   _targetLayer:
     serializedVersion: 2
     m_Bits: 128
