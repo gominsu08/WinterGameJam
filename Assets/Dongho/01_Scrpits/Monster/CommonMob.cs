@@ -64,7 +64,7 @@ public class CommonMob : MonoBehaviour
     }
     private void SwordInit()
     {
-        if(UnityEngine.Random.Range(1,101) < _dropPercent)
+        if(UnityEngine.Random.Range(0,101) < _dropPercent)
         {
             int rand = UnityEngine.Random.Range(0, _swordGropEnums.Count);
             _sword = _swordObjList.GetSword(_swordGropEnums[rand]);

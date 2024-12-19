@@ -48,7 +48,6 @@ public class MonsterSpawnManager : MonoBehaviour
                 {
                     position = GetRandomPointInTilemap();
                 }
-                RandomPoolMonster(position);
 
                 PoolManager.instance.PoolingObj("Knight_oracle").Get((value) =>
                 {
