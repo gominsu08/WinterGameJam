@@ -44,7 +44,7 @@ public class Line : MonoBehaviour
         float distance = (mousePos - (Vector2)transform.position).magnitude;
         Vector3 direction = mousePos - (Vector2)transform.position;
 
-        LineYScail(distance, direction, _getWeapon._swordDataSO.intersection > distance);
+        LineYScail(distance, direction, _getWeapon.dis > distance);
 
     }
 

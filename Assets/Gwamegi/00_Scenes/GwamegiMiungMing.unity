@@ -399,6 +399,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fbf1e65c1f8c094cabebbb8ca3a6b3e, type: 3}
+--- !u!1 &440465008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 440465010}
+  - component: {fileID: 440465009}
+  m_Layer: 0
+  m_Name: Scene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &440465009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440465008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa0d5983fc15b240b8360c10f71cf22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: SwordStrengtheningScene
+--- !u!4 &440465010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440465008}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4453757, y: 0.9174971, z: -0.10251753}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &556499377
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,6 +987,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DivideSword
       objectReference: {fileID: 0}
+    - target: {fileID: 7039314865245157228, guid: 81b05f111efc5684ebfff84684f5cfa8, type: 3}
+      propertyPath: m_Size.y
+      value: 1.9468657
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039314865245157228, guid: 81b05f111efc5684ebfff84684f5cfa8, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.18589312
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1121,6 +1174,63 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 721812996}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1308369729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308369732}
+  - component: {fileID: 1308369731}
+  - component: {fileID: 1308369730}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1308369730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308369729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba642c3f2a963742995d064dc27cd89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1308369731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308369729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b2715382faa73b4d945a95eae3024aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1308369732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308369729}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.2099007, y: -0.03427399, z: -0.052057747}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1371224555
@@ -1583,6 +1693,10 @@ PrefabInstance:
       propertyPath: OnCharge.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1177349085}
+    - target: {fileID: 6496688051578385057, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
+      propertyPath: dis
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8948169578412858792, guid: 01bbe499ef74e2b468a5da98db1c5c2b, type: 3}
       propertyPath: m_Name
       value: TestPlayer
@@ -1605,3 +1719,5 @@ SceneRoots:
   - {fileID: 1177349087}
   - {fileID: 953225597}
   - {fileID: 331882402}
+  - {fileID: 1308369732}
+  - {fileID: 440465010}

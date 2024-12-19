@@ -17,10 +17,11 @@ public class DivideSword : Sword
 
             testEnemy.Health--;
             Projectile project1 = Instantiate(projectile,transform.position,Quaternion.identity);
-            project1.init(Vector2.right);
+            project1.init(Vector2.up, transform.rotation);
             Projectile project2 = Instantiate(projectile, transform.position, Quaternion.identity);
-            project2.init(Vector2.left);
-            Destroy(gameObject);
+            project2.init(Vector2.down, transform.rotation);
+            m_RbCompo.velocity = Vector2.zero;
+            StartCoroutine(DestroedObject());
         }
     }
 }
