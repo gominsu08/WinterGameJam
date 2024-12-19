@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4803194681442440413}
   - component: {fileID: -5896631204370702868}
   - component: {fileID: 6228424017013564312}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: County_thief
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 8274132423449491426}
   - component: {fileID: 3045645972199900146}
   - component: {fileID: 7120888849835446705}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5264691874882796020}
   - component: {fileID: 6229519736856516660}
   - component: {fileID: 5345099732644238027}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,8 +118,8 @@ GameObject:
   - component: {fileID: 530882235136649111}
   - component: {fileID: -2836433607798083954}
   - component: {fileID: 7526530947543689060}
-  m_Layer: 0
-  m_Name: wanderer_explorer
+  m_Layer: 16
+  m_Name: Wanderer_explorer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

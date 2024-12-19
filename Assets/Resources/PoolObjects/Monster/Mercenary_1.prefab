@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3813836180918573580}
   - component: {fileID: 844489369329470698}
   - component: {fileID: -2520866232618796013}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Mercenary_1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 8032224111532227036}
   - component: {fileID: 985675077030135828}
   - component: {fileID: 3461773337213605126}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

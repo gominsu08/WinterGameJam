@@ -65,17 +65,6 @@ public class PoolManager : MonoBehaviour
 
         return poolDictionary[path];
     }
-    public IPool PoolingObj(string path, int number)
-    {
-        if (poolDictionary.ContainsKey(path) == false)
-        {
-            AddPool(path);
-        }
-
-        if (poolDictionary[path].pool.Count <= 0) AddObj(path, number);
-
-        return poolDictionary[path];
-    }
     // 새로운 풀을 생성하는 함수
     private void AddPool(string path)
     {
@@ -90,12 +79,6 @@ public class PoolManager : MonoBehaviour
     private void AddObj(string path)
     {
         var go = Instantiate(Resources.Load<GameObject>("PoolObjects/Monster/" + path));
-        poolDictionary[path].Return(go);
-    }
-    private void AddObj(string path, int number)
-    {
-        var item = Resources.LoadAll<GameObject>("PoolObjects/" + path);
-        var go = Instantiate(item[number]);
         poolDictionary[path].Return(go);
     }
 }

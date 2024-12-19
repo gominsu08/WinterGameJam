@@ -35,6 +35,7 @@ public class TopUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _remaineEnemy;
     [SerializeField] private TextMeshProUGUI _remaineTime;
     [SerializeField] private TextMeshProUGUI _coinText;
+    [SerializeField] private TextMeshProUGUI _waveText;
 
     private int _coin = 0;
     private int _enemyCount = 0;
@@ -71,22 +72,24 @@ public class TopUI : MonoBehaviour
     }
     private void SetRemainTime(int time)
     {
-        _remaineEnemy.gameObject.SetActive(false);
-        _remaineTime.gameObject.SetActive(true);
         StartCoroutine(NextWaveTimerCoroutine(time));
     }
     private IEnumerator NextWaveTimerCoroutine(int time)
     {
-        Debug.Log(time);
+        _remaineEnemy.gameObject.SetActive(false);
+        _remaineTime.gameObject.SetActive(true);
         _remaineTime.text = $"다음 웨이브까지 {time--}초...";
         yield return new WaitForSeconds(1f);
         if (time < 0)
         {
-            Debug.Log("OnNextWave");
             OnNextWave?.Invoke();
             StopCoroutine("NextWaveTimerCoroutine");
         }
         else
             StartCoroutine(NextWaveTimerCoroutine(time));
+    }
+    public void SetWaveText(int wave)
+    {
+        _waveText.text = $"웨이브 : {wave}";
     }
 }
