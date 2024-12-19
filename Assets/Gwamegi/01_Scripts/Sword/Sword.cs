@@ -21,6 +21,8 @@ public abstract class Sword : MonoBehaviour
 
     public UnityEvent OnAttackEvent;
 
+    public bool isCanHit;
+
     public virtual void Init(SwordDataSO swordDataSO, LayerMask obstacleLayerMask)
     {
         m_SwordDataSO = swordDataSO;
@@ -45,7 +47,10 @@ public abstract class Sword : MonoBehaviour
         if ((m_Position.x + 0.5f > transform.position.x && m_Position.x - 0.5f < transform.position.x) && (m_Position.y + 0.5f > transform.position.y && m_Position.y - 0.5f < transform.position.y))
         {
             if (_isCommonSword)
+            {
                 m_RbCompo.velocity = Vector2.zero;
+                isCanHit = false;
+            }
             else if (!_isCommonSword)
             {
                 m_RbCompo.velocity = Vector2.zero;
