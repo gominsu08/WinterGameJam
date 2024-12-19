@@ -13,7 +13,7 @@ public class DivideSword : Sword
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy))
+        if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
             //적한테 데미지 들어가는 부분 제대로 만들어야함
             testEnemy.GetDamage(damage);
@@ -24,6 +24,8 @@ public class DivideSword : Sword
             project2.init(Vector2.down, transform.rotation);
             m_RbCompo.velocity = Vector2.zero;
             StartCoroutine(DestroedObject());
+
+            isCanHit = false;
         }
     }
 }
