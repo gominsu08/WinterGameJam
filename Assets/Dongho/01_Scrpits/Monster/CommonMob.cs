@@ -132,6 +132,7 @@ public class CommonMob : MonoBehaviour
 
         _speed = 0;
         GetComponent<CapsuleCollider2D>().enabled = false;
+        _hp = 100000;
 
         StartCoroutine(AfterDeadCoroutine(UnityEngine.Random.Range(0.5f, 1.5f)));
         TopUI.instance.PlusCoin(_coin);

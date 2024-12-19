@@ -59,7 +59,7 @@ public class TopUI : MonoBehaviour
     public void SetCoin()
     {
         PlayerDataManager.Instance.AddGold(_coin);
-        _coinText.text = $"재화 : {_coin}";
+        _coinText.text = $"행복도 : {_coin}";
     }
     public void SetEnemyCount(int enemy)
     {
