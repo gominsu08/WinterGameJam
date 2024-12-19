@@ -112,7 +112,5 @@ public class CSVReader : MonoBehaviour
             // 이렇게 해두면 dicMenu.Add("샌드위치");로 menu.name, menu.price .. 접근 가능
             dicMenu.Add(menu.waveCount, menu);
         }
-        Menu menud = dicMenu[1];
-        Debug.Log(menud.monsters[0]);
     }
 }

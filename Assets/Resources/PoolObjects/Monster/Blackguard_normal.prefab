@@ -47,13 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec62fcb8cbe83c4bb3dd466deb59ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 10
   _dmg: 10
+  _hp: 10
   _speed: 3
-  _attackTargetDistance: 2
+  _attackTargetDistance: 1.5
   _targetLayer:
     serializedVersion: 2
     m_Bits: 128
+  _coin: 3
 --- !u!61 &-4350266845686371653
 BoxCollider2D:
   m_ObjectHideFlags: 0

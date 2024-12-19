@@ -1,50 +1,71 @@
+using DG.Tweening;
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CommonMob : MonoBehaviour
 {
+    public float _dmg;
+
     [SerializeField] private float _hp;
-    [SerializeField] private float _dmg;
     [SerializeField] private float _speed;
     [SerializeField] private float _attackTargetDistance; // 플레이어를 공격하는 거리
+    [SerializeField] private int _coin;
     [SerializeField] private LayerMask _targetLayer;
 
+    private string _name;
+    private SpriteRenderer _spriteRenderer;
+    private Sprite _sprite;
     private Transform _targetObject;
     private Rigidbody2D _rigid;
     private Animator _animator;
     private Vector2 _targetPosition;
 
+
     private void Awake()
     {
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _targetObject = GameObject.FindWithTag("Player").transform;
         _animator = GetComponentInChildren<Animator>();
         _rigid = GetComponent<Rigidbody2D>();
     }
+    private void Start()
+    {
+        _sprite = _spriteRenderer.sprite;
+        StartCoroutine(CheckTargetPosition(2f));
+    }
+
     private void Update()
     {
         Move();
-        _targetPosition = (_targetObject.position - transform.position);
-        
-        if(_targetObject.position.x < transform.position.x)
-            GetComponentInChildren<SpriteRenderer>().flipX = true;
-        else
-            GetComponentInChildren<SpriteRenderer>().flipX = false;
-
-        if (_animator.GetBool("Move"))
-        {
-            _targetPosition = _targetObject.position - transform.position;
-            _rigid.velocity = _targetPosition.normalized * _speed;
-        }
     }
 
+    public void SetName(string name)
+    {
+        _name = name;
+    }
+    private void SwordInit(GameObject sword)
+    {
+        // 무기 쥐어주면 될 듯
+    }
     private void Move()
     {
         _animator.SetBool("Move", true);
         _animator.ResetTrigger("Hit");
         _animator.ResetTrigger("Dead");
+        
+        if (_animator.GetBool("Move"))
+        {
+            _rigid.velocity = _targetPosition.normalized * _speed;
+        }
+        if (_attackTargetDistance > Vector2.Distance(_targetPosition, transform.position))
+        {
+            _rigid.velocity = Vector2.zero;
+            _animator.SetBool("Move", false);
+            _spriteRenderer.sprite = _sprite;
+        }
+        else
+            _animator.SetBool("Move", true);
     }
     private void Dead()
     {
@@ -52,7 +73,9 @@ public class CommonMob : MonoBehaviour
         _animator.ResetTrigger("Hit");
         _animator.SetTrigger("Dead");
 
-        // 때리기
+        StartCoroutine(AfterDeadCoroutine(UnityEngine.Random.Range(1, 3)));
+        TopUI.instance.GetCoin(_coin);
+        TopUI.instance.SetEnemyCount(--WaveManager.enemyCount);
 
         _animator.Play("Dead");
     }
@@ -66,7 +89,53 @@ public class CommonMob : MonoBehaviour
 
         _animator.Play("Hit");
     }
-    private void Run()
+    private IEnumerator CheckTargetPosition(float time)
     {
+        _targetPosition = _targetObject.position - transform.position;
+
+        if (_targetObject.position.x < transform.position.x)
+            _spriteRenderer.flipX = true;
+        else
+            _spriteRenderer.flipX = false;
+
+        yield return new WaitForSeconds(time);
+
+        StartCoroutine(CheckTargetPosition(time));
+    }
+    private IEnumerator AfterDeadCoroutine(float time)
+    {
+        yield return new WaitForSeconds(time);
+        AfterDead();
+    }
+    private void AfterDead()
+    {
+        transform.DOScale(0, 1);
+        PoolManager.instance.poolDictionary[_name].Return(this.gameObject);
+    }
+    public void DownSpeed(int percent)
+    {
+        _speed *= percent / 100;
+    }
+    public void ZeroSpeed()
+    {
+        _speed *= 0;
+    }
+    public void FilpSpeed()
+    {
+        _speed *= -1;
+    }
+    public void SecDamage(int time, int damage)
+    {
+        StartCoroutine(SecDamageCoroutine(time, damage));
+    }
+    private IEnumerator SecDamageCoroutine(int time, int damage)
+    {
+        GetDamage(damage);
+        yield return new WaitForSeconds(1f);
+        time--;
+        if (time <= 0)
+            StopCoroutine("SecDamageCoroutine");
+        StartCoroutine(SecDamageCoroutine(time, damage));
     }
 }
+
