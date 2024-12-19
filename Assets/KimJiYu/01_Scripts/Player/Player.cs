@@ -80,7 +80,7 @@ public class Player : MonoSingleton<Player>
         {
             if (collision.gameObject.TryGetComponent(out CommonMob monster))
             {
-                //_health.GetHit((int)monster._dmg);
+                _health.GetHit((int)monster._dmg);
             }
         }
     }

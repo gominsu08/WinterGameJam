@@ -50,36 +50,47 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && !isOwnWeapon && !_setting._isMovingPanel && !_setting._isPanelVisible)
+        if (!isOwnWeapon && !_setting._isMovingPanel && !_setting._isPanelVisible)
         {
-            //if (!_isCharge)
-            //{
-            //    SoundManager.Instance.PlaySound("ChargeSword");
-            //    _clip = GameObject.Find("ChargeSword Sound").GetComponent<AudioSource>();
-            //}
-            OnCharge?.Invoke();
-            ChargeWeapon();
+            if (Input.GetMouseButtonDown(0))
+            {
+                
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                if (!_isCharge)
+                {
+                    SoundManager.Instance.PlaySound("ChargeSword");
+                    _clip = GameObject.Find("ChargeSword Sound").GetComponent<AudioSource>();
+                    _isCharge = true;
+                }
+
+                ChargeWeapon();
+                OnCharge?.Invoke();
+            }
+            else if (Input.GetMouseButtonUp(0) && !_minThrow)
+                ThrowWeapon();
         }
-        else if (Input.GetMouseButtonUp(0) && !_minThrow && !isOwnWeapon && !_setting._isMovingPanel && !_setting._isPanelVisible)
-            ThrowWeapon();
     }
 
     private void ChargeWeapon()
     {
-        //_isCharge = true;
+        
+
         if (_chargeValue < 700)
         {
-            //_clip.pitch = 1.4f;
+            _clip.pitch = 1.4f;
             _chargeValue += Time.deltaTime * 1000;
         }
         else if (_chargeValue >= 700 && _chargeValue <= 2000)
         {
-            //_clip.pitch = 1.6f;
+            _clip.pitch = 1.6f;
             _chargeValue += Time.deltaTime * 1300;
         }
         else if (_chargeValue >= 2000)
         {
-            //_clip.pitch = 2f;
+            _clip.pitch = 2f;
             _chargeValue += Time.deltaTime * 2000;
             CameraShake.Instance.ShakeCamera();
             OnMaxChargeEvent?.Invoke();
@@ -111,10 +122,10 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
         _weaponInfoIcon.enabled = false;
         CameraShake.Instance.BigShake();
         _player._moveSpeed = 8;
+        _isCharge = false;
         _chargeValue = 0;
         transform.localRotation = Quaternion.Euler(0, 0, _chargeValue);
-        _isCharge = false;
-        //Destroy(_clip);
+        Destroy(GameObject.Find("ChargeSword Sound"));
         OnThrowWeapon?.Invoke(_currentWeaponId);
         StartCoroutine(CameraStopShake());
     }
@@ -123,5 +134,10 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
     {
         yield return new WaitForSeconds(0.2f);
         CameraShake.Instance.StopShake();
+    }
+
+    public void Test()
+    {
+        Debug.Log("dd");
     }
 }

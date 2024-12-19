@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class GetWeapon : MonoBehaviour
+public class GetWeapon : MonoSingleton<GetWeapon>
 {
     public UnityEvent OnPickUpSword;
 
@@ -15,7 +15,7 @@ public class GetWeapon : MonoBehaviour
 
     public SwordDataSO _swordDataSO;
     public float dis;
-    private bool _canPickUp;
+    public bool _canPickUp;
 
     public int swordId;
     public Sprite weaponIcon;
@@ -27,11 +27,14 @@ public class GetWeapon : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out SwordDataContains swordData))
+        if (!_canPickUp)
         {
-            _canPickUp = true;
-            _swordData = swordData;
-            _destroySword = collision.gameObject;
+            if (collision.gameObject.TryGetComponent(out SwordDataContains swordData))
+            {
+                _canPickUp = true;
+                _swordData = swordData;
+                _destroySword = collision.gameObject;
+            }
         }
     }
 
@@ -49,13 +52,12 @@ public class GetWeapon : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F) && WeaponThrow.Instance.isOwnWeapon)
             {
-                SoundManager.Instance.PlaySound("GetSword");
                 _weaponInfoIcon.enabled = true;
                 _weaponInfoIcon.sprite = _swordData.GetSwordSprite();
                 WeaponThrow.Instance.isPickUp = true;
                 OnPickUpSword?.Invoke();
                 StartCoroutine(OwnCoolTime());
-                Destroy(_destroySword);
+                SoundManager.Instance.PlaySound("GetSword");
             }
         }
     }
@@ -67,12 +69,14 @@ public class GetWeapon : MonoBehaviour
             _swordDataSO = _swordData.GetSwordDataSO();
             dis = _swordData.gameObject.GetComponent<Sword>().intersection;
             yield return new WaitForSeconds(_swordDataSO.pickUpDelayTime);
+            _canPickUp = false;
             weaponIcon = _swordData.GetSwordSprite();
             WeaponThrow.Instance._sprite.sprite = weaponIcon;
             WeaponThrow.Instance._sprite.enabled = true;
-            swordId = _swordData.GetSwordId();
+            WeaponThrow.Instance._currentWeaponId = _swordData.GetSwordId();
             WeaponThrow.Instance.isOwnWeapon = false;
             WeaponThrow.Instance.isPickUp = false;
+            Destroy(_destroySword);
         }
     }
 }
