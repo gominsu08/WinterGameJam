@@ -4,12 +4,13 @@ using UnityEngine;
 
 public enum SwordGroupEnum
 {
-    NS,
+    
     S,
     A,
     B,
     C,
-    D
+    D,
+    NS
 }
 
 
