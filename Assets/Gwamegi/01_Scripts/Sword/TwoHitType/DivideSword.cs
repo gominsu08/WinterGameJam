@@ -15,7 +15,7 @@ public class DivideSword : Sword
     {
         if (collision.TryGetComponent<TestEnemy>(out TestEnemy testEnemy))
         {
-
+            //적한테 데미지 들어가는 부분 제대로 만들어야함
             testEnemy.Health--;
             Projectile project1 = Instantiate(projectile,transform.position,Quaternion.identity);
             project1.init(Vector2.up, transform.rotation);

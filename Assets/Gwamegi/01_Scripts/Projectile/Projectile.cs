@@ -22,8 +22,10 @@ public abstract class Projectile : MonoBehaviour
         StartCoroutine(DestroyObject());
     }
 
-    private string DestroyObject()
+    private IEnumerator DestroyObject()
     {
+        yield return new WaitForSeconds(m_LifeTime);
+        Destroy(gameObject);
     }
 
     private void Update()
