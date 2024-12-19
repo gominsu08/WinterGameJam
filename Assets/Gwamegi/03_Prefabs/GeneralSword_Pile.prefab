@@ -86,8 +86,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0024775267, y: 0.010437906}
-  m_Size: {x: 0.31431317, y: 1.4468783}
+  m_Offset: {x: -0.00012898445, y: 0.010437906}
+  m_Size: {x: 0.25696516, y: 1.4468783}
   m_Direction: 0
 --- !u!50 &1544432842542935872
 Rigidbody2D:
@@ -151,6 +151,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isCanHit: 0
 --- !u!1 &8426251195849224928
 GameObject:
   m_ObjectHideFlags: 0
