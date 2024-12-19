@@ -84,8 +84,8 @@ public class Player : MonoSingleton<Player>
 
     private IEnumerator Dash()
     {
-        SoundManager.Instance.PlaySound("ChargeSword");
-        _clip = GameObject.Find("ChargeSword Sound").GetComponent<AudioSource>();
+        SoundManager.Instance.PlaySound("Dash");
+        _clip = GameObject.Find("Dash Sound").GetComponent<AudioSource>();
 
         _clip.pitch = 2.7f;
 
@@ -94,7 +94,7 @@ public class Player : MonoSingleton<Player>
         _trail.Active = true;
         _rigid.velocity = new Vector2(_moveDir.x * _dashSpeed, _moveDir.y * _dashSpeed);
         yield return new WaitForSeconds(_dashDuration);
-        Destroy(GameObject.Find("ChargeSword Sound"));
+        Destroy(GameObject.Find("Dash Sound"));
         _isDashing = false;
         _trail.Active = false;
         yield return new WaitForSeconds(_dashCoolTime);
