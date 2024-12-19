@@ -63,4 +63,9 @@ public class BtnSetting : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         Application.Quit();
     }
+
+    public void ReturnTitle()
+    {
+        SceneManager.LoadScene("TestTitle");
+    }
 }

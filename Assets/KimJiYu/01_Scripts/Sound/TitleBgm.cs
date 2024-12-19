@@ -8,4 +8,12 @@ public class TitleBgm : MonoBehaviour
     {
         SoundManager.Instance.PlaySound("TitleBG");
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            SoundManager.Instance.PlaySound("TitleBG");
+        }
+    }
 }

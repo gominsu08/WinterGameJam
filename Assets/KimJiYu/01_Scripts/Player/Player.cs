@@ -13,6 +13,8 @@ public class Player : MonoSingleton<Player>
 
     public bool _isDie;
 
+    private bool _hit;
+
     private Health _health;
     private Rigidbody2D _rigid;
     private Animator _anim;
@@ -78,11 +80,23 @@ public class Player : MonoSingleton<Player>
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (collision.gameObject.TryGetComponent(out CommonMob monster))
+            if (!_hit)
             {
-                _health.GetHit((int)monster._dmg);
+                if (collision.gameObject.TryGetComponent(out CommonMob monster))
+                {
+                    _health.GetHit((int)monster._dmg);
+                    _hit = true;
+                    StartCoroutine(HitDelay());
+                }
             }
+            
         }
+    }
+
+    private IEnumerator HitDelay()
+    {
+        yield return new WaitForSeconds(0.75f);
+        _hit = false;
     }
 
     private void CheckAnim()
