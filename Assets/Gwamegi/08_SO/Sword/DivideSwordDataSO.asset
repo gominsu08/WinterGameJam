@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47182be8a25ec5d4a993549c486e4fec, type: 3}
   m_Name: DivideSwordDataSO
   m_EditorClassIdentifier: 
-  swordNumber: 2
-  damage: 2
-  speed: 20
-  intersection: 5
-  pickUpDelayTime: 0.1
-  minSize: 0
-  maxSize: 0
-  swordGroupEnum: 0
-  swordSprite: {fileID: 1320390238, guid: 97dc31c84f41d9e488592d7fd01fb796, type: 3}
+  swordNumber: 0
+  damage: 0
+  speed: 0
+  intersection: 0
+  penetrationCount: 0
+  pickUpDelayTime: 0
+  swordSprite: {fileID: 0}

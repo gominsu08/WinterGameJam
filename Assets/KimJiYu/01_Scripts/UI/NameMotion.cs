@@ -20,6 +20,6 @@ public class NameMotion : MonoBehaviour
 
     private void NameMove()
     {
-        _rect.DOMoveY(_rect.position.y - 20f, 0.7f).SetEase(Ease.InSine).SetLoops(-1,LoopType.Yoyo);
+        _rect.DOMoveY(_rect.position.y - 15f, 1f).SetEase(Ease.InOutSine).SetLoops(-1,LoopType.Yoyo);
     }
 }

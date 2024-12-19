@@ -19,7 +19,6 @@ public class Line : MonoBehaviour
     public void Show()
     {
         transform.position = new Vector3(playerTrm.position.x, playerTrm.position.y - 0.3f, 0);
-        transform.localScale = new Vector3(transform.localScale.x, 1, 0);
         gameObject.SetActive(true);
     }
 
@@ -44,7 +43,7 @@ public class Line : MonoBehaviour
         float distance = (mousePos - (Vector2)transform.position).magnitude;
         Vector3 direction = mousePos - (Vector2)transform.position;
 
-        LineYScail(distance, direction, _getWeapon.dis > distance);
+        LineYScail(distance, direction, _getWeapon._swordDataSO.intersection > distance);
 
     }
 
@@ -56,8 +55,8 @@ public class Line : MonoBehaviour
 
         if (isCanScailUp)
         {
-            _renderer.size = new Vector3(2f, distance, 0);
-            _positionObject.localPosition = new Vector3(0,distance,0);
+            _renderer.size = new Vector3(2f, distance * 2, 0);
+            _positionObject.localPosition = new Vector3(0,distance * 2,0);
         }
 
     }

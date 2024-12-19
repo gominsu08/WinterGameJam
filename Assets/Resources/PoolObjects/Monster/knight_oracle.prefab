@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 120
   _dmg: 42
-  _speed: 4
+  _speed: 12
   _attackTargetDistance: 2
   _targetLayer:
     serializedVersion: 2
