@@ -15,7 +15,6 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
     private Player _player;
     private GetWeapon _currentWeaponData;
     private Image _weaponInfoIcon;
-
     
 
     public int _currentWeaponId;
@@ -42,11 +41,6 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
         
     }
 
-    public void test()
-    {
-        Debug.Log("dd");
-    }
-
     private void Update()
     {
         _currentWeaponId = _currentWeaponData.swordId;
@@ -62,7 +56,6 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
 
     private void ChargeWeapon()
     {
-        Debug.Log("Â÷Â¡");
         if(_chargeValue < 700)
             _chargeValue += Time.deltaTime * 1000;
         else if (_chargeValue >= 700 && _chargeValue <= 2000)
@@ -78,7 +71,6 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
 
     private void ThrowWeapon()
     {
-        Debug.Log("´øÁü");
         if (_chargeValue < 300)
         {
             _player._moveSpeed = 5;
@@ -86,7 +78,6 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
             _sequence = DOTween.Sequence();
             _sequence.Append(transform.DOLocalRotate(new Vector3(0, 0, 640f), 0.6f, RotateMode.FastBeyond360));
             _sequence.OnComplete(() => DisableThrow());
-
         }
         else
         {
