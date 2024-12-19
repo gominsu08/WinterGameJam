@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -57,11 +55,19 @@ public class GetWeapon : MonoSingleton<GetWeapon>
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out SwordDataContains swordData))
+        try
         {
-            _getUI.SetActive(false);
-            _pickUpObj.SetActive(false);
-            _canPickUp = false;
+            if (collision.gameObject.TryGetComponent(out SwordDataContains swordData))
+            {
+                _getUI.SetActive(false);
+                _pickUpObj.SetActive(false);
+                _canPickUp = false;
+            }
+
+        }
+        catch
+        {
+
         }
     }
 

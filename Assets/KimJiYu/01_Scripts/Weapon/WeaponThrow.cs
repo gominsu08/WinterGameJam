@@ -1,6 +1,4 @@
-using Cinemachine;
 using DG.Tweening;
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -28,6 +26,8 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
     private float _chargeValue = 0;
 
     private bool _minThrow = false;
+
+    private bool _isMaxCharge;
 
     private Sequence _sequence;
 
@@ -87,9 +87,13 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
         {
             _clip.pitch = 2f;
             _chargeValue += Time.deltaTime * 2000;
-            OnMaxChargeEvent?.Invoke();
+            if (!_isMaxCharge)
+            {
+                OnMaxChargeEvent?.Invoke();
+                _isMaxCharge = true;
+            }
         }
-        transform.localRotation = Quaternion.Euler(0,0,_chargeValue);
+        transform.localRotation = Quaternion.Euler(0, 0, _chargeValue);
         _player._moveSpeed = 5;
     }
 
@@ -112,6 +116,7 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
     }
     private void DisableThrow()
     {
+        _isMaxCharge = false;
         _sprite.enabled = false;
         _weaponInfoIcon.enabled = false;
         CameraShake.Instance.BigShake();
@@ -123,7 +128,7 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
         OnThrowWeapon?.Invoke(_currentWeaponId);
         StartCoroutine(CameraStopShake());
     }
-    
+
     private IEnumerator CameraStopShake()
     {
         yield return new WaitForSeconds(0.2f);

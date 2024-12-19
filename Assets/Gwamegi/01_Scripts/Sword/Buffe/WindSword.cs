@@ -14,7 +14,7 @@ public class WindSword : Sword
     {
         if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
-            //m_RbCompo.velocity = Vector2.zero;
+            m_RbCompo.velocity = Vector2.zero;
             OnAttackEvent?.Invoke();
 
             Player player = GameObject.FindAnyObjectByType<Player>();
@@ -23,9 +23,9 @@ public class WindSword : Sword
 
 
             player.StartCoroutine(MoveSpeedRerole(player));
-            //StartCoroutine(DestroedObject());
+            StartCoroutine(DestroedObject());
 
-            //isCanHit = false;
+            isCanHit = false;
         }
     }
 

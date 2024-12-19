@@ -6,7 +6,7 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
 {
     private void Awake()
     {
-        
+        Cursor.visible = true;
 
         var obj = FindObjectsOfType<PlayerDataManager>();
         if (obj.Length == 1)
