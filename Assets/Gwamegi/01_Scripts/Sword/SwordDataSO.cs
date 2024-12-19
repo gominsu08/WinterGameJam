@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum SwordGroupEnum
 {
+    NS,
     S,
     A,
     B,
