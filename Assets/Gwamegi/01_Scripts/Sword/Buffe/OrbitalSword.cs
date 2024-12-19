@@ -18,11 +18,11 @@ public class OrbitalSword : Sword
 
             SwordManager.Instance.SetCanDuobleAttackBool();
 
-            m_RbCompo.velocity = Vector2.zero;
-            StartCoroutine(DestroedObject());
+            //m_RbCompo.velocity = Vector2.zero;
+            //StartCoroutine(DestroedObject());
 
             testEnemy.GetDamage(damage);
-            isCanHit = false;
+            //isCanHit = false;
         }
     }
 

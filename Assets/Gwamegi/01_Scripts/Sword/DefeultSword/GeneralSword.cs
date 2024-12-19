@@ -8,12 +8,12 @@ public class GeneralSword : Sword
     {
         if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
-            m_RbCompo.velocity = Vector2.zero;
+            //m_RbCompo.velocity = Vector2.zero;
             OnAttackEvent?.Invoke();
-            StartCoroutine(DestroedObject());
+            //StartCoroutine(DestroedObject());
             testEnemy.GetDamage(damage);
 
-            isCanHit = false;
+            //isCanHit = false;
         }
     }
 }

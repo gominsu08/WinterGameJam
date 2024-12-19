@@ -13,11 +13,13 @@ public class Line : MonoBehaviour
 
     public void Hide()
     {
+        Cursor.visible = true;
         gameObject.SetActive(false);
     }
 
     public void Show()
     {
+        Cursor.visible = false;
         transform.position = new Vector3(playerTrm.position.x, playerTrm.position.y - 0.3f, 0);
         transform.localScale = new Vector3(transform.localScale.x, 1, 0);
         gameObject.SetActive(true);

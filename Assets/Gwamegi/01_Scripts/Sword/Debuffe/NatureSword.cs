@@ -17,7 +17,7 @@ public class NatureSword : Sword
     {
         if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
-            m_RbCompo.velocity = Vector2.zero;
+            //m_RbCompo.velocity = Vector2.zero;
             OnAttackEvent?.Invoke();
 
             Collider2D[] col = Physics2D.OverlapCircleAll(collision.transform.position, deBuffeRadius, _enemyLayerMask);
@@ -34,9 +34,9 @@ public class NatureSword : Sword
 
 
 
-            StartCoroutine(DestroedObject());
+            //StartCoroutine(DestroedObject());
 
-            isCanHit = false;
+            //isCanHit = false;
         }
     }
 }
