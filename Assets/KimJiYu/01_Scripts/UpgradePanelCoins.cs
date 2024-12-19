@@ -9,6 +9,6 @@ public class UpgradePanelCoins : MonoBehaviour
 
     private void Update()
     {
-        _coinText.text = $"{PlayerDataManager.Instance.Gold}";
+        _coinText.text = $"현재 재화 : {PlayerDataManager.Instance.Gold}";
     }
 }

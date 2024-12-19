@@ -27,6 +27,7 @@ public class CommonMob : MonoBehaviour
     private Vector2 _targetPosition;
     private Sword _sword;
     private float speed;
+    private float hp;
 
     private void Awake()
     {
@@ -47,6 +48,16 @@ public class CommonMob : MonoBehaviour
             ResetSpeed();
         else
             speed = _speed;
+        if (_speed == 0)
+            ResetHp();
+        else
+            hp = _hp;
+        ParticleSystem[] pars = GetComponentsInChildren<ParticleSystem>();
+
+        foreach (ParticleSystem item in pars)
+        {
+            Destroy(item.gameObject);
+        }
     }
 
     private void Update()
@@ -97,7 +108,10 @@ public class CommonMob : MonoBehaviour
     {
         _speed = speed;
     }
-
+    public void ResetHp()
+    {
+        _hp = hp;
+    }
     public void TickDamage(int count, int damage)
     {
         StartCoroutine(TakeTimeDamage(count, damage));
