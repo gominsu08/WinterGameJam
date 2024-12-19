@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48c32755cef4f784ab6582bd331841f7, type: 3}
-  m_Name: SfxSound
+  m_Name: TitleBG
   m_EditorClassIdentifier: 
-  soundName: shootSound
-  soundType: 1
-  clip: {fileID: 8300000, guid: e5a178219f2db3f4a865a3155608a3df, type: 3}
+  soundName: TitleBG
+  soundType: 0
+  clip: {fileID: 8300000, guid: 47a1cc05992c183479461ed4bf4fa576, type: 3}
   loop: 0
   Priority: 128
   volume: 1

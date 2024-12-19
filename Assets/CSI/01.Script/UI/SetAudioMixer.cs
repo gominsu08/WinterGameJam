@@ -30,25 +30,21 @@ public class SetAudioMixer : MonoBehaviour
     {
         if(value <= 1)
             _audioMixer.SetFloat("Master", Mathf.Log10(value) * 20);
-        
+        PlayerPrefs.SetFloat("Master", _Masterslider.value);
+
     }
     public void SetBGMSound(float value)
     {
         if(value <= 1)
             _audioMixer.SetFloat("BGM", Mathf.Log10(value) * 20);
-        
+        PlayerPrefs.SetFloat("BGM", _BGMslider.value);
+
     }
     public void SetSFXSound(float value)
     {
         if(value <= 1)
             _audioMixer.SetFloat("SFX", Mathf.Log10(value) * 20);
-        
-    }
+        PlayerPrefs.SetFloat("SFX", _SFXslider.value);
 
-    private void OnApplicationQuit()
-    {
-        PlayerPrefs.SetFloat("Master",_Masterslider.value);
-        PlayerPrefs.SetFloat("BGM",_BGMslider.value);
-        PlayerPrefs.SetFloat("SFX",_SFXslider.value);
     }
 }

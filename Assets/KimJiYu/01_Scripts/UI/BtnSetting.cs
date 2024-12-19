@@ -49,6 +49,7 @@ public class BtnSetting : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void StartGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("TestGame");
     }
 
@@ -61,5 +62,10 @@ public class BtnSetting : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void ReturnTitle()
+    {
+        SceneManager.LoadScene("TestTitle");
     }
 }

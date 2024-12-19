@@ -9,9 +9,15 @@ public class Player : MonoSingleton<Player>
 
     [field: SerializeField] public InputReader inputReader { get; private set; }
 
-    public float _moveSpeed;
+    [SerializeField] private float _dashSpeed = 10f;
+    [SerializeField] private float _dashDuration = 1f;
+    [SerializeField] private float _dashCoolTime = 1f;
 
+    public float _moveSpeed;
     public bool _isDie;
+    private bool _hit;
+    private bool _canDash;
+    private bool _isDashing;
 
     private Health _health;
     private Rigidbody2D _rigid;
@@ -31,17 +37,27 @@ public class Player : MonoSingleton<Player>
 
     private void GetMoveValue(Vector2 dir)
     {
-        _moveDir = dir;
+        _moveDir = dir.normalized;
     }
 
     private void FixedUpdate()
     {
+        if (_isDashing)
+            return;
         Move();
     }
 
     private void Update()
     {
+        if (_isDashing)
+            return;
+
         Flip();
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     private void Move()
@@ -49,12 +65,21 @@ public class Player : MonoSingleton<Player>
         if (!WeaponThrow.Instance.isPickUp && !_isDie)
         {
             CheckAnim();
-            _rigid.velocity = _moveDir.normalized * _moveSpeed;
+            _rigid.velocity = _moveDir * _moveSpeed;
         }
         else
         {
             _rigid.velocity = Vector2.zero;
         }
+    }
+
+    private IEnumerator Dash()
+    {
+        _canDash = false;
+        _isDashing = true;
+        _rigid.velocity = new Vector2(_moveDir.x * _dashSpeed, _moveDir.y * _dashSpeed);
+        yield return new WaitForSeconds(_dashDuration);
+        _isDashing = false;
     }
 
     private void Flip()
@@ -78,11 +103,23 @@ public class Player : MonoSingleton<Player>
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (collision.gameObject.TryGetComponent(out CommonMob monster))
+            if (!_hit)
             {
-                //_health.GetHit((int)monster._dmg);
+                if (collision.gameObject.TryGetComponent(out CommonMob monster))
+                {
+                    _health.GetHit((int)monster._dmg);
+                    _hit = true;
+                    StartCoroutine(HitDelay());
+                }
             }
+            
         }
+    }
+
+    private IEnumerator HitDelay()
+    {
+        yield return new WaitForSeconds(0.75f);
+        _hit = false;
     }
 
     private void CheckAnim()

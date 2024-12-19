@@ -9,12 +9,6 @@ public class SoundManager : MonoSingleton<SoundManager>
     [SerializeField] private SoundListSo _soundListSo;
     [SerializeField] private AudioMixer _mixer;
 
-    private void Start()
-    {
-        PlaySound("backGround");
-    }
-
-
     public void PlaySound(string soundName)
     {
         GameObject obj = new GameObject();

@@ -32,14 +32,6 @@ public class InputReader : ScriptableObject, IPlayerInputActions
         OnMove?.Invoke(InputVector);
     }
 
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-        OnAttackEvent?.Invoke();
-        if (context.canceled)
-            OnEndAttackEvent?.Invoke();
-
-    }
-
     private void OnDisable()
     {
         _playerInput.PlayerInput.Disable();

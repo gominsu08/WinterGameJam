@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class GetWeapon : MonoBehaviour
+public class GetWeapon : MonoSingleton<GetWeapon>
 {
     public UnityEvent OnPickUpSword;
+
+    [SerializeField] private GameObject _getUI;
 
     private SwordDataContains _swordData;
     private Image _weaponInfoIcon;
@@ -15,7 +17,7 @@ public class GetWeapon : MonoBehaviour
 
     public SwordDataSO _swordDataSO;
     public float dis;
-    private bool _canPickUp;
+    public bool _canPickUp;
 
     public int swordId;
     public Sprite weaponIcon;
@@ -25,13 +27,22 @@ public class GetWeapon : MonoBehaviour
         _weaponInfoIcon = GameObject.Find("WeaponIcon").GetComponent<Image>();
     }
 
+    private void Start()
+    {
+        _getUI.SetActive(false);
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out SwordDataContains swordData))
+        if (!_canPickUp)
         {
-            _canPickUp = true;
-            _swordData = swordData;
-            _destroySword = collision.gameObject;
+            if (collision.gameObject.TryGetComponent(out SwordDataContains swordData))
+            {
+                _getUI.SetActive(true);
+                _canPickUp = true;
+                _swordData = swordData;
+                _destroySword = collision.gameObject;
+            }
         }
     }
 
@@ -39,6 +50,7 @@ public class GetWeapon : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out SwordDataContains swordData))
         {
+            _getUI.SetActive(false);
             _canPickUp = false;
         }
     }
@@ -47,14 +59,14 @@ public class GetWeapon : MonoBehaviour
     {
         if (_swordData != null && _canPickUp)
         {
-            if (Input.GetMouseButtonDown(0) && WeaponThrow.Instance.isOwnWeapon)
+            if (Input.GetMouseButtonDown(1) && WeaponThrow.Instance.isOwnWeapon)
             {
                 _weaponInfoIcon.enabled = true;
                 _weaponInfoIcon.sprite = _swordData.GetSwordSprite();
                 WeaponThrow.Instance.isPickUp = true;
                 OnPickUpSword?.Invoke();
                 StartCoroutine(OwnCoolTime());
-                Destroy(_destroySword);
+                SoundManager.Instance.PlaySound("GetSword");
             }
         }
     }
@@ -66,12 +78,14 @@ public class GetWeapon : MonoBehaviour
             _swordDataSO = _swordData.GetSwordDataSO();
             dis = _swordData.gameObject.GetComponent<Sword>().intersection;
             yield return new WaitForSeconds(_swordDataSO.pickUpDelayTime);
+            _canPickUp = false;
             weaponIcon = _swordData.GetSwordSprite();
             WeaponThrow.Instance._sprite.sprite = weaponIcon;
             WeaponThrow.Instance._sprite.enabled = true;
-            swordId = _swordData.GetSwordId();
+            WeaponThrow.Instance._currentWeaponId = _swordData.GetSwordId();
             WeaponThrow.Instance.isOwnWeapon = false;
             WeaponThrow.Instance.isPickUp = false;
+            Destroy(_destroySword);
         }
     }
 }

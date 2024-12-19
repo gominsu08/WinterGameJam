@@ -35,15 +35,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Attack"",
-                    ""type"": ""Button"",
-                    ""id"": ""955cbec3-19cb-43b8-85e7-6c407c7b2c57"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -101,17 +92,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""929db3a7-44f9-42da-84b9-233a77a0db69"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -121,7 +101,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
         // PlayerInput
         m_PlayerInput = asset.FindActionMap("PlayerInput", throwIfNotFound: true);
         m_PlayerInput_Movement = m_PlayerInput.FindAction("Movement", throwIfNotFound: true);
-        m_PlayerInput_Attack = m_PlayerInput.FindAction("Attack", throwIfNotFound: true);
     }
 
     ~@KeyAction()
@@ -189,13 +168,11 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerInput;
     private List<IPlayerInputActions> m_PlayerInputActionsCallbackInterfaces = new List<IPlayerInputActions>();
     private readonly InputAction m_PlayerInput_Movement;
-    private readonly InputAction m_PlayerInput_Attack;
     public struct PlayerInputActions
     {
         private @KeyAction m_Wrapper;
         public PlayerInputActions(@KeyAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerInput_Movement;
-        public InputAction @Attack => m_Wrapper.m_PlayerInput_Attack;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -208,9 +185,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
-            @Attack.started += instance.OnAttack;
-            @Attack.performed += instance.OnAttack;
-            @Attack.canceled += instance.OnAttack;
         }
 
         private void UnregisterCallbacks(IPlayerInputActions instance)
@@ -218,9 +192,6 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
-            @Attack.started -= instance.OnAttack;
-            @Attack.performed -= instance.OnAttack;
-            @Attack.canceled -= instance.OnAttack;
         }
 
         public void RemoveCallbacks(IPlayerInputActions instance)
@@ -241,6 +212,5 @@ public partial class @KeyAction: IInputActionCollection2, IDisposable
     public interface IPlayerInputActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
     }
 }

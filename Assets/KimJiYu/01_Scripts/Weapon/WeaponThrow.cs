@@ -10,6 +10,7 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
 {
     public UnityEvent<int> OnThrowWeapon;
     public UnityEvent OnCharge;
+    public UnityEvent OnMaxChargeEvent;
 
     public SpriteRenderer _sprite;
     private Player _player;
@@ -17,10 +18,13 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
     private Image _weaponInfoIcon;
     private SettingUI _setting;
 
+    private AudioSource _clip;
+
     public int _currentWeaponId;
     public bool isOwnWeapon = false;
     public bool isPickUp = false;
     public bool isCharging = false;
+    private bool _isCharge = false;
     private float _chargeValue = 0;
 
     private bool _minThrow = false;
@@ -46,27 +50,50 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
 
     private void Update()
     {
-        _currentWeaponId = _currentWeaponData.swordId;
-
-        if (Input.GetMouseButton(0) && !isOwnWeapon && !_setting._isMovingPanel && !_setting._isPanelVisible)
+        if (!isOwnWeapon && !_setting._isMovingPanel && !_setting._isPanelVisible)
         {
-            OnCharge?.Invoke();
-            ChargeWeapon();
+            if (Input.GetMouseButtonDown(0))
+            {
+                
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                if (!_isCharge)
+                {
+                    SoundManager.Instance.PlaySound("ChargeSword");
+                    _clip = GameObject.Find("ChargeSword Sound").GetComponent<AudioSource>();
+                    _isCharge = true;
+                }
+
+                ChargeWeapon();
+                OnCharge?.Invoke();
+            }
+            else if (Input.GetMouseButtonUp(0) && !_minThrow)
+                ThrowWeapon();
         }
-        else if (Input.GetMouseButtonUp(0) && !_minThrow && !isOwnWeapon && !_setting._isMovingPanel && !_setting._isPanelVisible)
-            ThrowWeapon();
     }
 
     private void ChargeWeapon()
     {
-        if(_chargeValue < 700)
+        
+
+        if (_chargeValue < 700)
+        {
+            _clip.pitch = 1.4f;
             _chargeValue += Time.deltaTime * 1000;
+        }
         else if (_chargeValue >= 700 && _chargeValue <= 2000)
+        {
+            _clip.pitch = 1.6f;
             _chargeValue += Time.deltaTime * 1300;
+        }
         else if (_chargeValue >= 2000)
         {
+            _clip.pitch = 2f;
             _chargeValue += Time.deltaTime * 2000;
             CameraShake.Instance.ShakeCamera();
+            OnMaxChargeEvent?.Invoke();
         }
         transform.localRotation = Quaternion.Euler(0,0,_chargeValue);
         _player._moveSpeed = 5;
@@ -74,6 +101,7 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
 
     private void ThrowWeapon()
     {
+        SoundManager.Instance.PlaySound("ThrowSword");
         if (_chargeValue < 300)
         {
             _player._moveSpeed = 5;
@@ -94,8 +122,10 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
         _weaponInfoIcon.enabled = false;
         CameraShake.Instance.BigShake();
         _player._moveSpeed = 8;
+        _isCharge = false;
         _chargeValue = 0;
         transform.localRotation = Quaternion.Euler(0, 0, _chargeValue);
+        Destroy(GameObject.Find("ChargeSword Sound"));
         OnThrowWeapon?.Invoke(_currentWeaponId);
         StartCoroutine(CameraStopShake());
     }
@@ -104,5 +134,10 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
     {
         yield return new WaitForSeconds(0.2f);
         CameraShake.Instance.StopShake();
+    }
+
+    public void Test()
+    {
+        Debug.Log("dd");
     }
 }
