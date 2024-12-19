@@ -93,7 +93,6 @@ public class GetWeapon : MonoSingleton<GetWeapon>
                 _pickUpObj.SetActive(true);
 
                 _weaponInfoIcon.enabled = true;
-                _weaponInfoIcon.sprite = _swordData.GetSwordSprite();
                 WeaponThrow.Instance.isPickUp = true;
                 OnPickUpSword?.Invoke();
                 StartCoroutine(OwnCoolTime());
@@ -114,6 +113,7 @@ public class GetWeapon : MonoSingleton<GetWeapon>
             yield return new WaitForSeconds(_swordDataSO.pickUpDelayTime);
             _canPickUp = false;
             weaponIcon = _swordData.GetSwordSprite();
+            _weaponInfoIcon.sprite = _swordData.GetSwordSprite();
             WeaponThrow.Instance._sprite.sprite = weaponIcon;
             WeaponThrow.Instance._sprite.enabled = true;
             WeaponThrow.Instance._currentWeaponId = _swordData.GetSwordId();
