@@ -16,8 +16,8 @@ MonoBehaviour:
   damage: 30
   speed: 12
   intersection: 5
-  pickUpDelayTime: 0.1
+  pickUpDelayTime: 0.3
   minSize: 1
   maxSize: 3
-  swordGroupEnum: 3
+  swordGroupEnum: 2
   swordSprite: {fileID: -1786840094, guid: a07e17a44303c1f42a60ab7f0b097fe2, type: 3}

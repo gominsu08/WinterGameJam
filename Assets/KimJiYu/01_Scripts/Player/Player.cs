@@ -16,7 +16,7 @@ public class Player : MonoSingleton<Player>
     public float _moveSpeed;
     public bool _isDie;
     private bool _hit;
-    private bool _canDash;
+    public bool _canDash;
     private bool _isDashing;
 
     private Health _health;

@@ -372,7 +372,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1517,6 +1517,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _visual: {fileID: 8679737883109930940}
+  _isCommonSword: 0
+  damage: 0
+  speed: 0
+  intersection: 0
+  pickUpDelayTime: 0
+  minSize: 0
+  maxSize: 0
+  OnAttackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isCanHit: 0
+  projectile: {fileID: 0}
 --- !u!1001 &8156939458328034506
 PrefabInstance:
   m_ObjectHideFlags: 0

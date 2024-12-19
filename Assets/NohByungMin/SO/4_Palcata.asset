@@ -16,7 +16,7 @@ MonoBehaviour:
   damage: 15
   speed: 16
   intersection: 7
-  pickUpDelayTime: 1
+  pickUpDelayTime: 0.2
   minSize: 1
   maxSize: 3
   swordGroupEnum: 4
