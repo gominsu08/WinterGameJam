@@ -20,4 +20,4 @@ MonoBehaviour:
   minSize: 1
   maxSize: 1
   swordGroupEnum: 4
-  swordSprite: {fileID: 21300000, guid: 4cc208b9d78d21d44ab1ea43970de5ea, type: 3}
+  swordSprite: {fileID: -1650864785, guid: a07e17a44303c1f42a60ab7f0b097fe2, type: 3}
