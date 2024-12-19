@@ -21,7 +21,10 @@ public class Health : MonoSingleton<Health>
 
     private void Update()
     {
-
+        if (_currentHealth >= 100)
+        {
+            _currentHealth = 100;
+        }
     }
 
     private void Start()
