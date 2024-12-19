@@ -25,43 +25,9 @@ public class MonsterSpawnManager : MonoBehaviour
     public void SpawnMonster()
     {
         monsterCount = 0;
-        if (_waveCount > 20)
-        {
-            for (int j = 0; j < 2; j++)
-            {
-                for (int i = 0; i < _waveCount - 10; i++)
-                {
-                    monsterCount++;
-                    Vector2 position = GetRandomPointInTilemap();
-                    while (InScreen(position))
-                    {
-                        position = GetRandomPointInTilemap();
-                    }
-                    RandomPoolMonster(position);
-                }
-            }
-            for (int i = 0; i < 12; i++)
-            {
-                monsterCount++;
-                Vector2 position = GetRandomPointInTilemap();
-                while (InScreen(position))
-                {
-                    position = GetRandomPointInTilemap();
-                }
-
-                PoolManager.instance.PoolingObj("Knight_oracle").Get((value) =>
-                {
-                    value.transform.position = position;
-                    value.GetComponent<CommonMob>().SetName("Knight_oracle");
-                });
-            }
-            WaveManager.Instance.enemyCount = monsterCount;
-            TopUI.instance.SetEnemyCount(WaveManager.Instance.enemyCount);
-            return;
-        }
         if (_waveCount <= 7)
         {
-            if(Random.Range(1, 101) < rand)
+            if (Random.Range(1, 101) < rand)
             {
                 rand = 20;
                 monsterCount++;
@@ -128,7 +94,40 @@ public class MonsterSpawnManager : MonoBehaviour
                 rand += 20;
             }
         }
+        if (_waveCount > 20)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                for (int i = 0; i < _waveCount - 10; i++)
+                {
+                    monsterCount++;
+                    Vector2 position = GetRandomPointInTilemap();
+                    while (InScreen(position))
+                    {
+                        position = GetRandomPointInTilemap();
+                    }
+                    RandomPoolMonster(position);
+                }
+            }
+            for (int i = 0; i < 12; i++)
+            {
+                monsterCount++;
+                Vector2 position = GetRandomPointInTilemap();
+                while (InScreen(position))
+                {
+                    position = GetRandomPointInTilemap();
+                }
 
+                PoolManager.instance.PoolingObj("Knight_oracle").Get((value) =>
+                {
+                    value.transform.position = position;
+                    value.GetComponent<CommonMob>().SetName("Knight_oracle");
+                });
+            }
+            WaveManager.Instance.enemyCount = monsterCount;
+            TopUI.instance.SetEnemyCount(WaveManager.Instance.enemyCount);
+            return;
+        }
         for (int j = 0; j < CSVReader.instance.dicMenu[_waveCount].monsters.Length; j++)
         {
             for (int i = 0; i < int.Parse(CSVReader.instance.dicMenu[_waveCount].monsterNumber[j]); i++)
