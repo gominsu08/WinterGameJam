@@ -4,8 +4,22 @@ using UnityEngine;
 
 public class JustSwordDataManager : MonoSingleton<JustSwordDataManager>
 {
+
+    private void Awake()
+    {
+        var obj = FindObjectsOfType<JustSwordDataManager>();
+        if (obj.Length == 1)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private int _atk = 15;
-    private float _speed = 3f;
+    private float _speed = 20f;
     private float _range = 7f;
     private float _size = 1f;
     private float _pickDelay = 0.5f;

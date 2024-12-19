@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class GetWeapon : MonoBehaviour
     private GameObject _destroySword;
 
     public SwordDataSO _swordDataSO;
+    public float dis;
     private bool _canPickUp;
 
     public int swordId;
@@ -62,6 +64,7 @@ public class GetWeapon : MonoBehaviour
         if (_swordData != null)
         {
             _swordDataSO = _swordData.GetSwordDataSO();
+            dis = _swordData.gameObject.GetComponent<Sword>().intersection;
             yield return new WaitForSeconds(_swordDataSO.pickUpDelayTime);
             weaponIcon = _swordData.GetSwordSprite();
             WeaponThrow.Instance._sprite.sprite = weaponIcon;
