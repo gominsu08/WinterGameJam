@@ -18,7 +18,7 @@ public class StatPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _goldText;
     private int buyGold = 10;
 
-    private void Awake()
+    private void Start()
     {
         string var = "";
 
