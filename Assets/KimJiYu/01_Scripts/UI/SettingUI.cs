@@ -29,7 +29,7 @@ public class SettingUI : MonoBehaviour
 
     private void Update()
     {
-        if (!_isMovingPanel && Input.GetKeyDown(KeyCode.Escape) && !Player.Instance._isDie)
+        if (!_isMovingPanel && Input.GetKeyDown(KeyCode.Escape) && !Player.Instance._isDie && !WeaponThrow.Instance._isCharge)
         {
             if (_isPanelVisible)
                 HidePanel();

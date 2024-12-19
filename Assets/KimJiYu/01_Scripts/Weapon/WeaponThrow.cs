@@ -24,7 +24,7 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
     public bool isOwnWeapon = false;
     public bool isPickUp = false;
     public bool isCharging = false;
-    private bool _isCharge = false;
+    public bool _isCharge = false;
     private float _chargeValue = 0;
 
     private bool _minThrow = false;
