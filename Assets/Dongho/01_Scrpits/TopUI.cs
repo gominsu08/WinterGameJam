@@ -8,28 +8,6 @@ public class TopUI : MonoBehaviour
 {
     public static TopUI instance;
     public event Action OnNextWave;
-    public int coin
-    { 
-        get
-        {
-            return _coin;
-        }
-        private set 
-        {
-            _coin = value;
-        }
-    }
-    public int enemyCount
-    {
-        get
-        {
-            return _enemyCount;
-        }
-        private set
-        {
-            _enemyCount = value;
-        }
-    }
 
     [SerializeField] private TextMeshProUGUI _remaineEnemy;
     [SerializeField] private TextMeshProUGUI _remaineTime;
@@ -52,14 +30,14 @@ public class TopUI : MonoBehaviour
 
     public int PlusCoin(int getCoin)
     {
-        coin += getCoin;
+        _coin += getCoin;
         SetCoin();
-        return coin;
+        return _coin;
     }
     public void SetCoin()
     {
         PlayerDataManager.Instance.AddGold(_coin);
-        _coinText.text = $"재화 : {_coin}";
+        _coinText.text = $"행복도 : {_coin}";
     }
     public void SetEnemyCount(int enemy)
     {
