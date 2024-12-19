@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class SwordManager : MonoSingleton<SwordManager>
 {
@@ -12,7 +13,7 @@ public class SwordManager : MonoSingleton<SwordManager>
 
     public UnityEvent OnThrowSwordEvent;
 
-    public bool isCanDuobleAttack = false;
+    private bool _isCanDuobleAttack = false;
     
     public void SwordCreate(int index)
     {
@@ -25,12 +26,17 @@ public class SwordManager : MonoSingleton<SwordManager>
                 swordItem.isCanHit = true;
                 OnThrowSwordEvent?.Invoke();
 
-                if (isCanDuobleAttack && 1 != index)
+                if (_isCanDuobleAttack && 1 != index)
                 {
                     StartCoroutine(SwordCreateTwo(item));
                 }
             }
         }
+    }
+
+    public void SetCanDuobleAttackBool()
+    {
+        _isCanDuobleAttack = true;
     }
 
     private IEnumerator SwordCreateTwo(Sword item)
@@ -40,6 +46,6 @@ public class SwordManager : MonoSingleton<SwordManager>
         swordItem2.ThrowSword(_positionTransform.position);
         swordItem2.isCanHit = true;
         OnThrowSwordEvent?.Invoke();
-        isCanDuobleAttack = false;
+        _isCanDuobleAttack = false;
     }
 }

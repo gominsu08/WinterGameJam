@@ -22,8 +22,8 @@ public class DivideSword : Sword
             Projectile project2 = Instantiate(projectile, transform.position, Quaternion.identity);
             project2.init(Vector2.down, transform.rotation);
             m_RbCompo.velocity = Vector2.zero;
-            testEnemy.GetDamage(damage);
             StartCoroutine(DestroedObject());
+            testEnemy.GetDamage(damage);
 
             isCanHit = false;
         }

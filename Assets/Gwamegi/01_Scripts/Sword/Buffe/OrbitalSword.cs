@@ -14,14 +14,14 @@ public class OrbitalSword : Sword
     {
         if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
-            testEnemy.GetDamage(damage);
             OnAttackEvent?.Invoke();
 
-            SwordManager.Instance.isCanDuobleAttack = true;
+            SwordManager.Instance.SetCanDuobleAttackBool();
 
             m_RbCompo.velocity = Vector2.zero;
             StartCoroutine(DestroedObject());
 
+            testEnemy.GetDamage(damage);
             isCanHit = false;
         }
     }

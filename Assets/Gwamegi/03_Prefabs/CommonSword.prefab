@@ -134,6 +134,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _visual: {fileID: 8246285838427675921}
   _isCommonSword: 1
+  damage: 0
+  speed: 0
+  intersection: 0
+  pickUpDelayTime: 0
+  minSize: 0
+  maxSize: 0
+  OnAttackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isCanHit: 0
 --- !u!114 &4162432513560757913
 MonoBehaviour:
   m_ObjectHideFlags: 0

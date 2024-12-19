@@ -19,8 +19,8 @@ public class ThunderboltSword : Sword
             Instantiate(projectile,transform.position,transform.rotation);
             m_RbCompo.velocity = Vector2.zero;
             OnAttackEvent?.Invoke();
-            testEnemy.GetDamage(damage);
             StartCoroutine(DestroedObject());
+            testEnemy.GetDamage(damage);
             isCanHit = false;
         }
     }
