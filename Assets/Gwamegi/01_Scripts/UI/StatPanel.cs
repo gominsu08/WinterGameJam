@@ -27,6 +27,7 @@ public class StatPanel : MonoBehaviour
             case JustSwordStatEnum.Atk:
                 if (PlayerDataManager.Instance.IsCanDiscountGold(buyGold))
                 {
+                    PlayerDataManager.Instance.DiscountGold(buyGold);
                     buyGold = (int)(buyGold * 1.1f);
                     _goldText.SetText($"{buyGold}G");
                     JustSwordDataManager.Instance.SetAtk(1);
@@ -36,6 +37,7 @@ public class StatPanel : MonoBehaviour
             case JustSwordStatEnum.Speed:
                 if (PlayerDataManager.Instance.IsCanDiscountGold(buyGold))
                 {
+                    PlayerDataManager.Instance.DiscountGold(buyGold);
                     buyGold = (int)(buyGold * 1.1f);
                     _goldText.SetText($"{buyGold}G");
                     JustSwordDataManager.Instance.SetSpeed(0.1f);
@@ -45,6 +47,7 @@ public class StatPanel : MonoBehaviour
             case JustSwordStatEnum.Range:
                 if (PlayerDataManager.Instance.IsCanDiscountGold(buyGold))
                 {
+                    PlayerDataManager.Instance.DiscountGold(buyGold);
                     buyGold = (int)(buyGold * 1.1f);
                     _goldText.SetText($"{buyGold}G");
                     JustSwordDataManager.Instance.SetRange(0.1f);
@@ -54,6 +57,7 @@ public class StatPanel : MonoBehaviour
             case JustSwordStatEnum.Size:
                 if (PlayerDataManager.Instance.IsCanDiscountGold(buyGold))
                 {
+                    PlayerDataManager.Instance.DiscountGold(buyGold);
                     buyGold = (int)(buyGold * 1.1f);
                     _goldText.SetText($"{buyGold}G");
                     JustSwordDataManager.Instance.SetSize(0.08f);

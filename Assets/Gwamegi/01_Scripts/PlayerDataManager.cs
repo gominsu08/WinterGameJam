@@ -6,6 +6,8 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
 {
     private void Awake()
     {
+        
+
         var obj = FindObjectsOfType<PlayerDataManager>();
         if (obj.Length == 1)
         {
@@ -18,7 +20,7 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
     }
 
 
-    public int Gold { get; private set; } = 0;
+    public int Gold { get; private set; }
 
     public bool IsCanDiscountGold(int count) => Gold - count > 0;
 
