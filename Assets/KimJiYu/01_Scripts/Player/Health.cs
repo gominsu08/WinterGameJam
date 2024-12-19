@@ -33,6 +33,7 @@ public class Health : MonoSingleton<Health>
     public void GetHit(int damage)
     {
         _currentHealth -= damage;
+        SoundManager.Instance.PlaySound("Hit");
         OnHpChage?.Invoke();
         if (_currentHealth <= 0)
         {

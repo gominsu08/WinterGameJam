@@ -17,12 +17,14 @@ public class Player : MonoSingleton<Player>
     public bool _isDie;
     private bool _hit;
     public bool _canDash;
-    private bool _isDashing;
+    public bool _isDashing;
 
     private Health _health;
     private Rigidbody2D _rigid;
     private Animator _anim;
     private PlayerTrail _trail;
+
+    private AudioSource _clip;
 
     private Vector2 _moveDir;
 
@@ -82,11 +84,17 @@ public class Player : MonoSingleton<Player>
 
     private IEnumerator Dash()
     {
+        SoundManager.Instance.PlaySound("Dash");
+        _clip = GameObject.Find("Dash Sound").GetComponent<AudioSource>();
+
+        _clip.pitch = 2.7f;
+
         _canDash = true;
         _isDashing = true;
         _trail.Active = true;
         _rigid.velocity = new Vector2(_moveDir.x * _dashSpeed, _moveDir.y * _dashSpeed);
         yield return new WaitForSeconds(_dashDuration);
+        Destroy(GameObject.Find("Dash Sound"));
         _isDashing = false;
         _trail.Active = false;
         yield return new WaitForSeconds(_dashCoolTime);
