@@ -78,21 +78,22 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
     {
         
 
-        if (_chargeValue < 700)
+        if (_chargeValue < 400)
         {
+            CameraShake.Instance.ShakeCameraSmall();
             _clip.pitch = 1.4f;
             _chargeValue += Time.deltaTime * 1000;
         }
-        else if (_chargeValue >= 700 && _chargeValue <= 2000)
+        else if (_chargeValue >= 400 && _chargeValue <= 700)
         {
+            CameraShake.Instance.ShakeCameraMiddle();
             _clip.pitch = 1.6f;
             _chargeValue += Time.deltaTime * 1300;
         }
-        else if (_chargeValue >= 2000)
+        else if (_chargeValue >= 700)
         {
             _clip.pitch = 2f;
             _chargeValue += Time.deltaTime * 2000;
-            CameraShake.Instance.ShakeCamera();
             OnMaxChargeEvent?.Invoke();
         }
         transform.localRotation = Quaternion.Euler(0,0,_chargeValue);
