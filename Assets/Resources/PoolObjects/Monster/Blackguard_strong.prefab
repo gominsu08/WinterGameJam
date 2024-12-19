@@ -248,7 +248,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _swordObjList: {fileID: 11400000, guid: 4493c9c53d15e9f44affca33971a8cf6, type: 2}
-  _swordGropEnums: 040000000300000002000000
+  _swordGropEnums: 0400000003000000
   _spriteRenderer: {fileID: 3718311663258311006}
   _swordSpriteRenderer: {fileID: 5563523267048018260}
   _dropPercent: 30
