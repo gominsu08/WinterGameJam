@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9139491321713450050}
   - component: {fileID: 3241864471782344966}
   - component: {fileID: 1510203488196170769}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Knight_2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 2467040005093911321}
   - component: {fileID: 1305361166519199126}
   - component: {fileID: 6841560848562862003}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

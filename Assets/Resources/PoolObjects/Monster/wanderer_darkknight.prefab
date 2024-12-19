@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4382972643876455614}
   - component: {fileID: 7392825830801486162}
   - component: {fileID: 4370242086308260891}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,8 +118,8 @@ GameObject:
   - component: {fileID: 7733486989090336343}
   - component: {fileID: 4368722401171231369}
   - component: {fileID: -1530359347845433317}
-  m_Layer: 0
-  m_Name: wanderer_darkknight
+  m_Layer: 16
+  m_Name: Wanderer_darkknight
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

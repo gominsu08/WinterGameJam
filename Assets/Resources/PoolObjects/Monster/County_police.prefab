@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 461785621395535638}
   - component: {fileID: -6589226612160980582}
   - component: {fileID: -4706810621621530329}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: County_police
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 4383923806201025202}
   - component: {fileID: 7227871010417607864}
   - component: {fileID: 1156934258091899170}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

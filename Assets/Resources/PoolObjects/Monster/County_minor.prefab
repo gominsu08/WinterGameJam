@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5944713677943977385}
   - component: {fileID: 5208198513872520702}
   - component: {fileID: 8009998756343789535}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 7019114907944208262}
   - component: {fileID: -3768245505879439400}
   - component: {fileID: 7925357237636890583}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: County_minor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
