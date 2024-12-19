@@ -31,13 +31,13 @@ public class TopUI : MonoBehaviour
     public int PlusCoin(int getCoin)
     {
         _coin += getCoin;
-        SetCoin();
+        SetCoin(_coin);
         return _coin;
     }
-    public void SetCoin()
+    public void SetCoin(int getCoin)
     {
-        PlayerDataManager.Instance.AddGold(_coin);
-        _coinText.text = $"행복도 : {_coin}";
+        PlayerDataManager.Instance.AddGold(getCoin);
+        _coinText.text = $"행복도 : {getCoin}";
     }
     public void SetEnemyCount(int enemy)
     {
