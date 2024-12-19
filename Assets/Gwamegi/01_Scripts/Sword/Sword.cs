@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Sword : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public abstract class Sword : MonoBehaviour
     public float intersection;
     public float pickUpDelayTime;
     public float minSize, maxSize;
+
+    public UnityEvent OnAttackEvent;
+
+    public bool isCanHit;
 
     public virtual void Init(SwordDataSO swordDataSO, LayerMask obstacleLayerMask)
     {
@@ -42,7 +47,10 @@ public abstract class Sword : MonoBehaviour
         if ((m_Position.x + 0.5f > transform.position.x && m_Position.x - 0.5f < transform.position.x) && (m_Position.y + 0.5f > transform.position.y && m_Position.y - 0.5f < transform.position.y))
         {
             if (_isCommonSword)
+            {
                 m_RbCompo.velocity = Vector2.zero;
+                isCanHit = false;
+            }
             else if (!_isCommonSword)
             {
                 m_RbCompo.velocity = Vector2.zero;
@@ -55,6 +63,7 @@ public abstract class Sword : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         Destroy(gameObject);
+
     }
 
     public virtual void ThrowSword(Vector2 targetPos)

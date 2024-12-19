@@ -18,10 +18,13 @@ public class CommonSword : Sword
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<TestEnemy>(out TestEnemy testEnemy))
+        if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
-            testEnemy.Health--;
+            testEnemy.GetDamage(damage);
             m_RbCompo.velocity = Vector2.zero;
+            OnAttackEvent?.Invoke();
+
+            isCanHit = false;
         }
     }
 

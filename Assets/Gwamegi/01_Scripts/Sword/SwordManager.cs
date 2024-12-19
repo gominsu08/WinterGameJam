@@ -19,6 +19,7 @@ public class SwordManager : MonoBehaviour
             {
                 Sword swordItem = Instantiate(item,transform.position,Quaternion.identity);
                 swordItem.ThrowSword(_positionTransform.position);
+                swordItem.isCanHit = true;
                 OnThrowSwordEvent?.Invoke();
             }
         }
