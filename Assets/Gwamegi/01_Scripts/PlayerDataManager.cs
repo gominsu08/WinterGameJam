@@ -25,7 +25,7 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
     public bool IsCanDiscountGold(int count) => Gold - count > 0;
 
     public void DiscountGold(int count) => Gold -= count;
-    public void AddGold(int count) => Gold = count;
+    public void AddGold(int count) => Gold += count;
 
 
 }

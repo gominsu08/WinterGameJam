@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class SettingUI : MonoBehaviour
 {
@@ -32,9 +33,12 @@ public class SettingUI : MonoBehaviour
         if (!_isMovingPanel && Input.GetKeyDown(KeyCode.Escape) && !Player.Instance._isDie && !WeaponThrow.Instance._isCharge)
         {
             if (_isPanelVisible)
-                HidePanel();
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                CloseSetting();
+            }
             else
-                ShowPanel();
+                OpenSetting();
         }
     }
 

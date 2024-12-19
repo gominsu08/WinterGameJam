@@ -48,7 +48,7 @@ public class CommonMob : MonoBehaviour
             ResetSpeed();
         else
             speed = _speed;
-        if (_speed == 0)
+        if (_hp >= 10000 || _hp <= 0)
             ResetHp();
         else
             hp = _hp;
