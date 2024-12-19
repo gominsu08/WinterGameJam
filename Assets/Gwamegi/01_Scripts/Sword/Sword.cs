@@ -10,13 +10,26 @@ public abstract class Sword : MonoBehaviour
     protected Vector2 m_Position;
     protected Rigidbody2D m_RbCompo;
     protected float m_Rotation = -135;
-    [SerializeField] private bool _isCommonSword;
+    public bool _isCommonSword;
+
+    public int damage;
+    public float speed;
+    public float intersection;
+    public float pickUpDelayTime;
+    public float minSize, maxSize;
 
     public virtual void Init(SwordDataSO swordDataSO, LayerMask obstacleLayerMask)
     {
         m_SwordDataSO = swordDataSO;
         m_LayerMask = obstacleLayerMask;
         m_RbCompo = GetComponent<Rigidbody2D>();
+
+        damage = m_SwordDataSO.damage;
+        speed = m_SwordDataSO.speed;
+        intersection = m_SwordDataSO.intersection;
+        pickUpDelayTime = m_SwordDataSO.pickUpDelayTime;
+        minSize = m_SwordDataSO.minSize;
+        maxSize = m_SwordDataSO.maxSize;
     }
 
     private void Update()
@@ -38,7 +51,7 @@ public abstract class Sword : MonoBehaviour
         }
     }
 
-    private IEnumerator DestroedObject()
+    protected IEnumerator DestroedObject()
     {
         yield return new WaitForSeconds(0.25f);
         Destroy(gameObject);
@@ -51,14 +64,14 @@ public abstract class Sword : MonoBehaviour
         Vector2 direction = (targetPos - (Vector2)transform.position);
         float desiredAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         _visual.transform.rotation = Quaternion.AngleAxis(desiredAngle + m_Rotation, Vector3.forward);
-        m_RbCompo.velocity = direction.normalized * m_SwordDataSO.speed;
+        m_RbCompo.velocity = direction.normalized * speed;
     }
 
     public virtual void DistanceCalculation(Vector2 targetPos)
     {
         Vector2 dir = targetPos - (Vector2)transform.position;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, m_SwordDataSO.intersection, m_LayerMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, intersection, m_LayerMask);
 
         if (hit)
             m_Position = hit.transform.position;
