@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 7138915892864808973}
   - component: {fileID: 6899141002250101613}
   - component: {fileID: -4638380619032323639}
+  - component: {fileID: 9066641826900641093}
   m_Layer: 16
   m_Name: Knight_leader
   m_TagString: Enemy
@@ -250,7 +251,7 @@ MonoBehaviour:
   _swordGropEnums: 020000000100000000000000
   _spriteRenderer: {fileID: 6120545567702956734}
   _swordSpriteRenderer: {fileID: 3072643172597329861}
-  _dropPercent: 50
+  _dropPercent: 90
 --- !u!61 &6899141002250101613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -323,3 +324,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &9066641826900641093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7643743765164621961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbb820d9fe1bf24e9cf140e19662028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

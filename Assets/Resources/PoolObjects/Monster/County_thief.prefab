@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4803194681442440413}
   - component: {fileID: -5896631204370702868}
   - component: {fileID: 6228424017013564312}
+  - component: {fileID: -9020024347563906364}
   m_Layer: 16
   m_Name: County_thief
   m_TagString: Enemy
@@ -60,7 +61,7 @@ MonoBehaviour:
   _swordGropEnums: 0300000002000000
   _spriteRenderer: {fileID: 3045645972199900146}
   _swordSpriteRenderer: {fileID: 5910601271675800443}
-  _dropPercent: 30
+  _dropPercent: 60
 --- !u!61 &-5896631204370702868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,6 +134,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-9020024347563906364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141239656163697849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbb820d9fe1bf24e9cf140e19662028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5329726912140587379
 GameObject:
   m_ObjectHideFlags: 0
