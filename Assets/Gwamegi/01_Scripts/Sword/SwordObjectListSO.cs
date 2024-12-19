@@ -67,6 +67,5 @@ public class SwordObjectListSO : ScriptableObject
         {
             return swords[Random.Range(0, swords.Count)];
         }
-
     }
 }
