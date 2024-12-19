@@ -13,9 +13,9 @@ public class BreadSword : Sword
     {
         if (collision.TryGetComponent<CommonMob>(out CommonMob testEnemy) && isCanHit)
         {
+            //StartCoroutine(DestroedObject());
 
-            StartCoroutine(DestroedObject());
-            m_RbCompo.velocity = Vector2.zero;
+            //m_RbCompo.velocity = Vector2.zero;
             OnAttackEvent?.Invoke();
             Health.Instance.GetHit(-30);
 
@@ -23,7 +23,7 @@ public class BreadSword : Sword
 
             testEnemy.GetDamage(damage);
 
-            isCanHit = false;
+            //isCanHit = false;
         }
     }
 }

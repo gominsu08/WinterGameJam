@@ -20,11 +20,11 @@ public class GalacticSword : Sword
             item.Boom();
             OnAttackEvent?.Invoke();
 
-            m_RbCompo.velocity = Vector2.zero;
+            //m_RbCompo.velocity = Vector2.zero;
             testEnemy.GetDamage(damage);
-            StartCoroutine(DestroedObject());
+            //StartCoroutine(DestroedObject());
 
-            isCanHit = false;
+            //isCanHit = false;
         }
     }
 }

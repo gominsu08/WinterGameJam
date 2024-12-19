@@ -82,9 +82,9 @@ public abstract class Sword : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, intersection, m_LayerMask);
 
-        if (hit)
-            m_Position = hit.transform.position;
-        else
+        //if (hit)
+        //    m_Position = hit.transform.position;
+        //else
             m_Position = targetPos;
     }
 

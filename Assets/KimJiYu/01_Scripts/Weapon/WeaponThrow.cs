@@ -52,11 +52,6 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
     {
         if (!isOwnWeapon && !_setting._isMovingPanel && !_setting._isPanelVisible)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                
-            }
-
             if (Input.GetMouseButton(0))
             {
                 if (!_isCharge)
@@ -76,8 +71,6 @@ public class WeaponThrow : MonoSingleton<WeaponThrow>
 
     private void ChargeWeapon()
     {
-        
-
         if (_chargeValue < 400)
         {
             CameraShake.Instance.ShakeCameraSmall();
