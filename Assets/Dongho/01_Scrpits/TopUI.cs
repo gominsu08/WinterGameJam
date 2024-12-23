@@ -37,6 +37,7 @@ public class TopUI : MonoBehaviour
     public void SetCoin(int getCoin)
     {
         PlayerDataManager.Instance.AddGold(getCoin);
+        JustSwordDataManager.Instance.JsonSave();
         _coinText.text = $"วเบนตต : {_coin}";
     }
     public void SetEnemyCount(int enemy)

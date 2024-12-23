@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: -661352898590462363}
   - component: {fileID: 3239326667693057389}
   m_Layer: 16
-  m_Name: Wanderer_knight
+  m_Name: wanderer_knight
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +193,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &-661352898590462363
 MonoBehaviour:

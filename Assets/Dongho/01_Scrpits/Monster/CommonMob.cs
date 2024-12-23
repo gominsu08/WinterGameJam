@@ -62,10 +62,10 @@ public class CommonMob : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            GetDamage(1000);
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    GetDamage(1000);
+        //}
         Move();
     }
 
