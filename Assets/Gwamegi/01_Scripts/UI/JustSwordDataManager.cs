@@ -2,7 +2,19 @@ using System.IO;
 using UnityEngine;
 
 
+[System.Serializable]
+public class SaveData
+{
+    public int _atk;
+    public float _speed;
+    public float _range;
 
+    public int atkBuyGold;
+    public int speedBuyGold;
+    public int rangeBuyGold;
+
+    public int gold;
+}
 public class JustSwordDataManager : MonoSingleton<JustSwordDataManager>
 {
     private string path;
@@ -11,7 +23,9 @@ public class JustSwordDataManager : MonoSingleton<JustSwordDataManager>
 
     private void Awake()
     {
-        path = Path.Combine(Application.dataPath, "database.json");
+
+        path = System.IO.Path.Combine(Application.dataPath, "database.json");
+        JsonLoad();
 
         var obj = FindObjectsOfType<JustSwordDataManager>();
         if (obj.Length == 1)
@@ -35,10 +49,74 @@ public class JustSwordDataManager : MonoSingleton<JustSwordDataManager>
     public int rangeBuyGold = 10;
     public int pickBuyGold = 10;
 
-
     
 
-    private void Update()
+    [ContextMenu("FileReset")]
+    public void FileReset()
+    {
+        File.Delete(System.IO.Path.Combine(Application.dataPath, "database.json"));
+
+
+    }
+
+    public void JsonLoad()
+    {
+        SaveData saveData = new SaveData();
+
+        try
+        {
+            string loadJson = File.ReadAllText(path);
+            saveData = JsonUtility.FromJson<SaveData>(loadJson);
+
+
+
+            PlayerDataManager.Instance.Gold = saveData.gold;
+
+            _atk = saveData._atk;
+            _speed = saveData._speed;
+            _range = saveData._range;
+
+            atkBuyGold = saveData.atkBuyGold;
+            speedBuyGold = saveData.speedBuyGold;
+            rangeBuyGold = saveData.rangeBuyGold;
+
+
+        }
+        catch
+        {
+            File.CreateText(path);
+        }
+    }
+
+
+    public void JsonSave()
+    {
+        SaveData saveData = new SaveData();
+
+        saveData.gold = PlayerDataManager.Instance.Gold;
+
+        saveData._atk = JustSwordDataManager.Instance._atk;
+        saveData._speed = JustSwordDataManager.Instance._speed;
+        saveData._range = JustSwordDataManager.Instance._range;
+
+        saveData.atkBuyGold = JustSwordDataManager.Instance.atkBuyGold;
+        saveData.speedBuyGold = JustSwordDataManager.Instance.speedBuyGold;
+        saveData.rangeBuyGold = JustSwordDataManager.Instance.rangeBuyGold;
+
+
+        string json = JsonUtility.ToJson(saveData, true);
+
+        File.WriteAllText(path, json);
+    }
+
+    private void OnApplicationQuit()
+    {
+        JsonSave();
+    }
+
+
+
+private void Update()
     {
         Debug.Log(PlayerDataManager.Instance.Gold);
     }

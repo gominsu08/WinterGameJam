@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: -4400592264571020004}
   - component: {fileID: -107958341714093600}
   m_Layer: 16
-  m_Name: Wanderer_darkknight
+  m_Name: wanderer_darkknight
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +193,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &-4400592264571020004
 MonoBehaviour:

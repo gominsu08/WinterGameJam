@@ -4,19 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-[System.Serializable]
-public class SaveData
-{
-    public int _atk;
-    public float _speed;
-    public float _range;
 
-    public int atkBuyGold;
-    public int speedBuyGold;
-    public int rangeBuyGold;
-
-    public int gold;
-}
 
 public class DataSave : MonoBehaviour
 {

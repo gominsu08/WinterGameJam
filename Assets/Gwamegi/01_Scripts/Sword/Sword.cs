@@ -39,10 +39,10 @@ public abstract class Sword : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            ThrowSword(new Vector2(6, 3));
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    ThrowSword(new Vector2(6, 3));
+        //}
 
         if ((m_Position.x + 0.5f > transform.position.x && m_Position.x - 0.5f < transform.position.x) && (m_Position.y + 0.5f > transform.position.y && m_Position.y - 0.5f < transform.position.y))
         {
