@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Sea
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,6 +14,20 @@ TagManager:
   - Water
   - UI
   - 
+  - Player
+  - Sword
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Obstacle
+  - Enemy
+  - 
+  - 
+  - 
+  - PostProcessing
   - 
   - 
   - 
@@ -22,22 +38,29 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Sea
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Sea
+    uniqueID: 3566592269
+    locked: 0
+  - name: Background
+    uniqueID: 1448606077
+    locked: 0
+  - name: Frontgrund
+    uniqueID: 3801716787
+    locked: 0
+  - name: 'Nature '
+    uniqueID: 2485311381
+    locked: 0
+  - name: Monster
+    uniqueID: 1566979715
+    locked: 0
+  - name: Agent
+    uniqueID: 1524654843
+    locked: 0
+  - name: VFX
+    uniqueID: 1553633047
     locked: 0

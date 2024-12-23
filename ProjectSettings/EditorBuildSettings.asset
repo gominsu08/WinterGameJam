@@ -5,7 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/KimJiYu/00_Scenes/TestTitle.unity
+    guid: 19d012c3ebb36bf4fabc6e691397ae84
+  - enabled: 1
+    path: Assets/KimJiYu/00_Scenes/TestGame.unity
+    guid: 09be9bc1af4cecc41b8dc0b1e1a6cf8b
+  - enabled: 0
+    path: Assets/Gwamegi/00_Scenes/Ming.unity
+    guid: ada6b00f69620ab4ab239d477579ce20
+  - enabled: 0
+    path: Assets/Gwamegi/00_Scenes/GwamegiMiungMing.unity
+    guid: d30e4b499f0a88842b0f8f2088c6aa52
+  - enabled: 0
+    path: Assets/Gwamegi/00_Scenes/SwordStrengtheningScene.unity
+    guid: ea4e3339631d84843bd1d21360223595
   m_configObjects: {}
